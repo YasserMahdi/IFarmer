@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28C5D124-7404-4A83-99CF-259E817E9DF4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IFarmer</RootNamespace>
+    <AssemblyName>IFarmer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.52\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\categories.cs" />
+    <Compile Include="BL\CompaniesClass.cs" />
+    <Compile Include="BL\CustomerClass.cs" />
+    <Compile Include="BL\orderClass.cs" />
+    <Compile Include="BL\Seasons.cs" />
+    <Compile Include="BL\SeedsAndMaterialClass.cs" />
+    <Compile Include="BL\testClass.cs" />
+    <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="PL\categoriesQue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\categoriesQue.Designer.cs">
+      <DependentUpon>categoriesQue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Companies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Companies.Designer.cs">
+      <DependentUpon>Companies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CompanyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CompanyProfile.Designer.cs">
+      <DependentUpon>CompanyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CurrentSeasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CurrentSeasons.Designer.cs">
+      <DependentUpon>CurrentSeasons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\customerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\customerForm.Designer.cs">
+      <DependentUpon>customerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\DirSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\DirSales.Designer.cs">
+      <DependentUpon>DirSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\documens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\documens.Designer.cs">
+      <DependentUpon>documens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Expenses.Designer.cs">
+      <DependentUpon>Expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FinishedSeasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FinishedSeasons.Designer.cs">
+      <DependentUpon>FinishedSeasons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\insCompanies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\insCompanies.Designer.cs">
+      <DependentUpon>insCompanies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\insertCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\insertCustomer.Designer.cs">
+      <DependentUpon>insertCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\insSeason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\insSeason.Designer.cs">
+      <DependentUpon>insSeason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\listCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\listCustomer.Designer.cs">
+      <DependentUpon>listCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\listMat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\listMat.Designer.cs">
+      <DependentUpon>listMat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Seasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Seasons.Designer.cs">
+      <DependentUpon>Seasons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\seedAndMaterialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\seedAndMaterialForm.Designer.cs">
+      <DependentUpon>seedAndMaterialForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\insSeedsAndMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\insSeedsAndMaterial.Designer.cs">
+      <DependentUpon>insSeedsAndMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\testForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\testForm.Designer.cs">
+      <DependentUpon>testForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\categoriesQue.resx">
+      <DependentUpon>categoriesQue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Companies.resx">
+      <DependentUpon>Companies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CompanyProfile.resx">
+      <DependentUpon>CompanyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CurrentSeasons.resx">
+      <DependentUpon>CurrentSeasons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\customerForm.resx">
+      <DependentUpon>customerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\DirSales.resx">
+      <DependentUpon>DirSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\documens.resx">
+      <DependentUpon>documens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FinishedSeasons.resx">
+      <DependentUpon>FinishedSeasons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\insCompanies.resx">
+      <DependentUpon>insCompanies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\insertCustomer.resx">
+      <DependentUpon>insertCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\insSeason.resx">
+      <DependentUpon>insSeason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\listCustomer.resx">
+      <DependentUpon>listCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\listMat.resx">
+      <DependentUpon>listMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Seasons.resx">
+      <DependentUpon>Seasons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\seedAndMaterialForm.resx">
+      <DependentUpon>seedAndMaterialForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\insSeedsAndMaterial.resx">
+      <DependentUpon>insSeedsAndMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
