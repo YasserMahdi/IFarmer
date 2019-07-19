@@ -18,7 +18,7 @@ namespace IFarmer.PL
 
         DataTable dt = new DataTable();
 
-
+        int money;
         void calculateAmount()
         {
             if (txtQte.Text != string.Empty && txtMatPrice.Text != string.Empty)
@@ -63,7 +63,14 @@ namespace IFarmer.PL
             InitializeComponent();
             createColumns();
             txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
-            
+            this.txtTotal.Text = "المبلغ الكلي";
+            this.txtAmountReceived.Text = "المبلغ الواصل";
+            this.txtTotal.Leave += new System.EventHandler(this.txtTotal_Leave);
+            this.txtTotal.Enter += new System.EventHandler(this.txtTotal_Enter);
+            this.txtAmountReceived.Leave += new System.EventHandler(this.txtAmountReceived_Leave);
+            this.txtAmountReceived.Enter += new System.EventHandler(this.txtAmountReceived_Enter);
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -79,9 +86,10 @@ namespace IFarmer.PL
             try
             {
 
-                
+
                 this.txtName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-               
+                this.txtCusID.Text = frm.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
 
             }
             catch (Exception)
@@ -102,7 +110,7 @@ namespace IFarmer.PL
                 txtMatName.Text = mat.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 txtMatPrice.Text = mat.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                 txtQte.Focus();
-                
+
 
             }
             catch
@@ -116,16 +124,86 @@ namespace IFarmer.PL
         {
             txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
             clearBoxes();
-            
+
 
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            if (MessageBox.Show("هل تريد طباعة الفاتورة", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
+                int count; int.TryParse(txtAmountReceived.Text, out count);
+                int total; int.TryParse(txtTotal.Text, out total);
+                if (txtName.Text == string.Empty)
+                {
+                    MessageBox.Show("الرجاء ادخال اسم الزبون");
+                }
+                else if (txtAmountReceived.Text == string.Empty)
+                {
+                    MessageBox.Show("الرجاء ادخال المبلغ الواصل");
+                }
+                else if ((total - count) == 0) // If the invoice is paid
+                {
 
+                    //insert the informations of invoive
+                    ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
+                        Convert.ToDouble(0), "YES");
+
+                    //insert the detiles of invoive
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+
+
+                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), Convert.ToInt32(txtID.Text)
+                            , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
+                            , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
+                           );
+
+                    }
+
+                    if (MessageBox.Show("تم الحفظ بنجاح هل تريد طباعة الفاتورة ", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                    }
+
+                }
+                //if there are debt 
+                else if ((total - count) > 1)
+                {
+                    //insert the informations of invoive
+                    ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
+                        Convert.ToDouble(0), "NO");
+
+                    //insert the detiles of invoive
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+
+
+                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), Convert.ToInt32(txtID.Text)
+                            , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
+                            , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
+                           );
+
+                    }
+
+                    BL.debtClass debt = new BL.debtClass();
+                    debt.add_debt_detail(Convert.ToInt32(txtID.Text), Convert.ToInt32(txtCusID.Text)
+                        , Convert.ToDouble(total - count));
+
+
+                    if (MessageBox.Show("تم حفظ الفاتورة و الدين هل تريد طباعة الفاتورة", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                    }
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -144,10 +222,10 @@ namespace IFarmer.PL
                             MessageBox.Show("هذا المنتج موجود مسبقاً", "تنبية", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             return;
                         }
-                        
+
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -156,7 +234,7 @@ namespace IFarmer.PL
                 DataRow r = dt.NewRow();
 
                 string Priceformatted = string.Format("{0:n0}", Convert.ToDouble(txtMatPrice.Text));
-                
+
 
                 r[0] = txtMatNo.Text;
                 r[1] = txtMatName.Text;
@@ -225,5 +303,47 @@ namespace IFarmer.PL
                 return;
             }
         }
+
+
+
+
+        private void txtTotal_Leave(object sender, EventArgs e)
+        {
+            if (txtTotal.Text.Length == 0)
+            {
+                txtTotal.Text = "المبلغ الكلي";
+                txtTotal.ForeColor = SystemColors.GrayText;
+            }
+        }
+
+        private void txtTotal_Enter(object sender, EventArgs e)
+        {
+            if (txtTotal.Text == "المبلغ الكلي")
+            {
+                txtTotal.Text = "";
+                txtTotal.ForeColor = SystemColors.WindowText;
+            }
+        }
+
+
+        private void txtAmountReceived_Leave(object sender, EventArgs e)
+        {
+            if (txtAmountReceived.Text.Length == 0)
+            {
+                txtAmountReceived.Text = "المبلغ الواصل";
+                txtAmountReceived.ForeColor = SystemColors.GrayText;
+            }
+
+        }
+
+        private void txtAmountReceived_Enter(object sender, EventArgs e)
+        {
+            if (txtAmountReceived.Text == "المبلغ الواصل")
+            {
+                txtAmountReceived.Text = "";
+                txtAmountReceived.ForeColor = SystemColors.WindowText;
+            }
+        }
+
     }
 }

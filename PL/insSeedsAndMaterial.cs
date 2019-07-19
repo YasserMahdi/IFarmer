@@ -13,9 +13,13 @@ namespace IFarmer.PL
     public partial class insSeedsAndMaterial : Form
     {
         BL.SeedsAndMaterialClass sam = new BL.SeedsAndMaterialClass();
+        BL.categories cat = new BL.categories();
         public insSeedsAndMaterial()
         {
             InitializeComponent();
+            this.comboBox1.DisplayMember = "cat_name";
+            this.comboBox1.ValueMember = "cat_id";
+            this.comboBox1.DataSource = cat.getCategoriesInfo();
         }
 
         private void bunifuThinButton23_Click(object sender, EventArgs e)
@@ -30,6 +34,11 @@ namespace IFarmer.PL
                 sam.insertCat(txtCatName.Text);
                 MessageBox.Show("تمت الاضافة بنجاح", "عملية الاضافة",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                // for update combo box
+                this.comboBox1.DisplayMember = "cat_name";
+                this.comboBox1.ValueMember = "cat_id";
+                this.comboBox1.DataSource = cat.getCategoriesInfo();
             }
             catch(Exception ex)
             {
@@ -41,8 +50,9 @@ namespace IFarmer.PL
         {
             try
             {
-                sam.insertMtr(txtCatName.Text,Convert.ToDouble( txtBprice.Text),Convert.ToDouble(
-                txtSprice.Text),Convert.ToInt32( txtQte.Text));
+                sam.insertMtr(txtMatName.Text,Convert.ToDouble( txtBprice.Text),Convert.ToDouble(
+                txtSprice.Text),Convert.ToInt32( txtQte.Text), comboBox1.GetItemText(comboBox1.SelectedItem));
+                MessageBox.Show("تمت الاضافة بنجاح", "عملية الاضافة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {

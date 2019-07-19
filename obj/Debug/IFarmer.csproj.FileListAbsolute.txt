@@ -26,3 +26,11 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.Seasons.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.CurrentSeasons.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.FinishedSeasons.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.CompanyProfile.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.Expenses.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.Debts.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.selExpenses.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.listCurrentSeasons.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.OneSeasonsDisbursements.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.customerProfile.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.DisplayMaterials.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.salaryQue.resources

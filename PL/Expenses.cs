@@ -12,9 +12,73 @@ namespace IFarmer.PL
 {
     public partial class Expenses : Form
     {
+        BL.Expenses exp = new BL.Expenses();
         public Expenses()
         {
             InitializeComponent();
+        }
+
+        private void Expenses_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                exp.insSalary(txtName.Text, Convert.ToDouble(txtSal.Text), dateTimePicker1.Value);
+                MessageBox.Show("تم العملية بنجاح", "الرواتب", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEpxSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                exp.insExpenses(txtFor.Text, Convert.ToDouble(txtAmount.Text), dateTimePicker2.Value);
+                MessageBox.Show("تم العملية بنجاح", "الرواتب", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PL.listCurrentSeasons frm = new listCurrentSeasons();
+            //this.textBox1.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            frm.ShowDialog();
+            try
+            {
+                this.txtSeasonName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (this.txtSeasonName.Text != string.Empty) {
+                if (MessageBox.Show("هل تريد اضافة صرفيات لهذا الموسم" + " " + txtSeasonName.Text + " " + "لقد تم اختيار الموس  ", "صرفيات"
+                    , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    PL.OneSeasonsDisbursements frm = new OneSeasonsDisbursements();
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("الرجاء اختيار موسم", "تنلبه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

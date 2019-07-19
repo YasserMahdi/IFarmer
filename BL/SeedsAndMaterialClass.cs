@@ -10,11 +10,11 @@ namespace IFarmer.BL
 {
     class SeedsAndMaterialClass
     {
-        public void insertMtr(string nameMtr, Double buyPrice, Double salePrice, int quantity)
+        public void insertMtr(string nameMtr, Double buyPrice, Double salePrice, int quantity,string type)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
-            SqlParameter[] param = new SqlParameter[4];
+            SqlParameter[] param = new SqlParameter[6];
 
             param[0] = new SqlParameter("@mat_name", SqlDbType.VarChar, 50);
             param[0].Value = nameMtr;
@@ -27,6 +27,12 @@ namespace IFarmer.BL
 
             param[3] = new SqlParameter("@Quantity", SqlDbType.Int);
             param[3].Value = quantity;
+
+            param[4] = new SqlParameter("@type_name", SqlDbType.NVarChar, 50);
+            param[4].Value = type;
+
+            param[5] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[5].Value = DateTime.Now;
 
             DAL.Executecmd("insertMatirials", param);
             DAL.close();
@@ -67,6 +73,37 @@ namespace IFarmer.BL
               //  {
 
               //  }
+            }
+
+
+            return Dt;
+
+        }
+
+        public DataTable BringSeedsByType(string type_name)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@type", SqlDbType.NVarChar, 50);
+            param[0].Value = type_name;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("BringSeedsByType", param);
+            accessobject.close();
+
+            foreach (DataRow row in Dt.Rows)
+            {
+                //  try
+                //  {
+                //    row["سعر الشراء"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر الشراء"]));
+                //
+                //       row["سعر البيع"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر البيع"]));
+                //  }
+                //   catch (Exception ex)
+                //  {
+
+                //  }
             }
 
 

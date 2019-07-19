@@ -35,7 +35,7 @@ namespace IFarmer.BL
 
         }
 
-        public void add_order(int customerID, string inv_no, string saleman, double total_ammount, double dept)
+        public void add_order(int customerID, string inv_no, string note, double total_ammount, double dept,string isCashed)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -47,8 +47,8 @@ namespace IFarmer.BL
             param[1] = new SqlParameter("@inv_date", SqlDbType.DateTime);
             param[1].Value = DateTime.Now;
 
-            param[2] = new SqlParameter("@salesman", SqlDbType.NVarChar, 50);
-            param[2].Value = saleman;
+            param[2] = new SqlParameter("@note", SqlDbType.NVarChar, 50);
+            param[2].Value = note;
 
             param[3] = new SqlParameter("@customer_iD", SqlDbType.Int);
             param[3].Value = customerID;
@@ -56,7 +56,7 @@ namespace IFarmer.BL
             param[4] = new SqlParameter("@total_amount", SqlDbType.Money);
             param[4].Value = total_ammount;
 
-            param[5] = new SqlParameter("@dept", SqlDbType.Money);
+            param[5] = new SqlParameter("@recived", SqlDbType.Money);
             param[5].Value = dept;
 
 

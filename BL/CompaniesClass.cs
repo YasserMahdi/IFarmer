@@ -38,5 +38,69 @@ namespace IFarmer.BL
 
         }
 
+        public DataTable getIdForCompOrder()
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("getIdForCompOrder", null);
+            accessobject.close();
+
+
+            return Dt;
+
+        }
+
+
+        public void add_comp_order(int  id, string compName,double amount)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@inv_no", SqlDbType.Int);
+            param[0].Value = id;
+
+            param[1] = new SqlParameter("@comp_name", SqlDbType.NVarChar,50);
+            param[1].Value = compName;
+
+            param[2] = new SqlParameter("@amount", SqlDbType.NVarChar, 50);
+            param[2].Value = amount;
+
+
+            DAL.Executecmd("add_comp_order", param);
+            DAL.close();
+        }
+
+        public void add_comp_order_detail( int order_no,string productName ,int qte, double price, double amount)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[5];
+
+
+            param[0] = new SqlParameter("@product_name", SqlDbType.Int);
+            param[0].Value = productName;
+
+            param[1] = new SqlParameter("@order_no", SqlDbType.Int);
+            param[1].Value = order_no;
+
+            param[2] = new SqlParameter("@qte", SqlDbType.Int);
+            param[2].Value = qte;
+
+            param[3] = new SqlParameter("@price", SqlDbType.Money);
+            param[3].Value = price;
+
+            param[4] = new SqlParameter("@amount", SqlDbType.Money);
+            param[4].Value = Convert.ToDouble(amount);
+
+
+
+
+
+            DAL.Executecmd("add_comp_order_detail", param);
+            DAL.close();
+        }
+
     }
 }

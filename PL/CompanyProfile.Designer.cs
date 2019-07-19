@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyProfile));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.btnSave = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtOrderID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,10 +48,7 @@
             this.txtMatPrice = new System.Windows.Forms.TextBox();
             this.txtQte = new System.Windows.Forms.TextBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton23 = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -117,10 +117,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtOrderID);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -137,32 +137,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "طلبية جديدة";
             // 
-            // bunifuCustomDataGrid1
+            // txtTotal
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid1.DoubleBuffered = true;
-            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(10, 149);
-            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
-            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid1.RowTemplate.Height = 26;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(785, 250);
-            this.bunifuCustomDataGrid1.TabIndex = 0;
+            this.txtTotal.Location = new System.Drawing.Point(10, 405);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(156, 24);
+            this.txtTotal.TabIndex = 30;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnSave
+            // 
+            this.btnSave.ActiveBorderThickness = 1;
+            this.btnSave.ActiveCornerRadius = 20;
+            this.btnSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.ButtonText = "حفظ";
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.IdleBorderThickness = 1;
+            this.btnSave.IdleCornerRadius = 20;
+            this.btnSave.IdleFillColor = System.Drawing.Color.White;
+            this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.Location = new System.Drawing.Point(309, 440);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(181, 41);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(639, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 23);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "رقم الطلبية";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtOrderID
+            // 
+            this.txtOrderID.Location = new System.Drawing.Point(477, 23);
+            this.txtOrderID.Name = "txtOrderID";
+            this.txtOrderID.ReadOnly = true;
+            this.txtOrderID.Size = new System.Drawing.Size(156, 24);
+            this.txtOrderID.TabIndex = 24;
+            this.txtOrderID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -217,7 +245,7 @@
             this.txtMatName.Location = new System.Drawing.Point(496, 116);
             this.txtMatName.Name = "txtMatName";
             this.txtMatName.Size = new System.Drawing.Size(299, 24);
-            this.txtMatName.TabIndex = 24;
+            this.txtMatName.TabIndex = 1;
             this.txtMatName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMatPrice
@@ -225,7 +253,7 @@
             this.txtMatPrice.Location = new System.Drawing.Point(334, 116);
             this.txtMatPrice.Name = "txtMatPrice";
             this.txtMatPrice.Size = new System.Drawing.Size(156, 24);
-            this.txtMatPrice.TabIndex = 23;
+            this.txtMatPrice.TabIndex = 2;
             this.txtMatPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtQte
@@ -233,69 +261,48 @@
             this.txtQte.Location = new System.Drawing.Point(172, 116);
             this.txtQte.Name = "txtQte";
             this.txtQte.Size = new System.Drawing.Size(156, 24);
-            this.txtQte.TabIndex = 22;
+            this.txtQte.TabIndex = 3;
             this.txtQte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQte.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQte_KeyDown);
+            this.txtQte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQte_KeyPress);
+            this.txtQte.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQte_KeyUp);
             // 
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(10, 116);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(156, 24);
-            this.txtAmount.TabIndex = 21;
+            this.txtAmount.TabIndex = 4;
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // bunifuCustomDataGrid1
             // 
-            this.textBox1.Location = new System.Drawing.Point(477, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 24);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(639, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "رقم الطلبية";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnSave
-            // 
-            this.btnSave.ActiveBorderThickness = 1;
-            this.btnSave.ActiveCornerRadius = 20;
-            this.btnSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
-            this.btnSave.ButtonText = "حفظ";
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.IdleBorderThickness = 1;
-            this.btnSave.IdleCornerRadius = 20;
-            this.btnSave.IdleFillColor = System.Drawing.Color.White;
-            this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.Location = new System.Drawing.Point(309, 440);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(181, 41);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(10, 405);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 24);
-            this.textBox2.TabIndex = 30;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.bunifuCustomDataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bunifuCustomDataGrid1.DoubleBuffered = true;
+            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
+            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(10, 149);
+            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
+            this.bunifuCustomDataGrid1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.bunifuCustomDataGrid1.RowTemplate.Height = 26;
+            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(785, 250);
+            this.bunifuCustomDataGrid1.TabIndex = 0;
             // 
             // bunifuThinButton21
             // 
@@ -440,8 +447,8 @@
         private System.Windows.Forms.TextBox txtQte;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtOrderID;
+        private System.Windows.Forms.TextBox txtTotal;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSave;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton22;

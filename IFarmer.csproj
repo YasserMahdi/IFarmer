@@ -53,6 +53,8 @@
     <Compile Include="BL\categories.cs" />
     <Compile Include="BL\CompaniesClass.cs" />
     <Compile Include="BL\CustomerClass.cs" />
+    <Compile Include="BL\debtClass.cs" />
+    <Compile Include="BL\Expenses.cs" />
     <Compile Include="BL\orderClass.cs" />
     <Compile Include="BL\Seasons.cs" />
     <Compile Include="BL\SeedsAndMaterialClass.cs" />
@@ -88,11 +90,29 @@
     <Compile Include="PL\customerForm.Designer.cs">
       <DependentUpon>customerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\customerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\customerProfile.Designer.cs">
+      <DependentUpon>customerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Debts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Debts.Designer.cs">
+      <DependentUpon>Debts.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\DirSales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\DirSales.Designer.cs">
       <DependentUpon>DirSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\DisplayMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\DisplayMaterials.Designer.cs">
+      <DependentUpon>DisplayMaterials.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\documens.cs">
       <SubType>Form</SubType>
@@ -130,6 +150,12 @@
     <Compile Include="PL\insSeason.Designer.cs">
       <DependentUpon>insSeason.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\listCurrentSeasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\listCurrentSeasons.Designer.cs">
+      <DependentUpon>listCurrentSeasons.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\listCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +173,18 @@
     </Compile>
     <Compile Include="PL\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\OneSeasonsDisbursements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\OneSeasonsDisbursements.Designer.cs">
+      <DependentUpon>OneSeasonsDisbursements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\salaryQue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\salaryQue.Designer.cs">
+      <DependentUpon>salaryQue.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Seasons.cs">
       <SubType>Form</SubType>
@@ -166,11 +204,11 @@
     <Compile Include="PL\insSeedsAndMaterial.Designer.cs">
       <DependentUpon>insSeedsAndMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\testForm.cs">
+    <Compile Include="PL\selExpenses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\testForm.Designer.cs">
-      <DependentUpon>testForm.cs</DependentUpon>
+    <Compile Include="PL\selExpenses.Designer.cs">
+      <DependentUpon>selExpenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -189,11 +227,23 @@
     <EmbeddedResource Include="PL\customerForm.resx">
       <DependentUpon>customerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\customerProfile.resx">
+      <DependentUpon>customerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Debts.resx">
+      <DependentUpon>Debts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\DirSales.resx">
       <DependentUpon>DirSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\DisplayMaterials.resx">
+      <DependentUpon>DisplayMaterials.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\documens.resx">
       <DependentUpon>documens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Expenses.resx">
+      <DependentUpon>Expenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FinishedSeasons.resx">
       <DependentUpon>FinishedSeasons.cs</DependentUpon>
@@ -207,6 +257,9 @@
     <EmbeddedResource Include="PL\insSeason.resx">
       <DependentUpon>insSeason.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\listCurrentSeasons.resx">
+      <DependentUpon>listCurrentSeasons.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\listCustomer.resx">
       <DependentUpon>listCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +269,12 @@
     <EmbeddedResource Include="PL\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\OneSeasonsDisbursements.resx">
+      <DependentUpon>OneSeasonsDisbursements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\salaryQue.resx">
+      <DependentUpon>salaryQue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Seasons.resx">
       <DependentUpon>Seasons.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\insSeedsAndMaterial.resx">
       <DependentUpon>insSeedsAndMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\selExpenses.resx">
+      <DependentUpon>selExpenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

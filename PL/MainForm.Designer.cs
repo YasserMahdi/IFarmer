@@ -59,6 +59,8 @@
             this.الاستعلامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.استعلامعنالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.استعلامعنالفواتيرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.استعلامعنالصرفياتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.استعلامعنالرواتبToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.التقاريرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الارباحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخسائرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -435,7 +437,9 @@
             // 
             this.الاستعلامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.استعلامعنالمستنداتToolStripMenuItem,
-            this.استعلامعنالفواتيرToolStripMenuItem});
+            this.استعلامعنالفواتيرToolStripMenuItem,
+            this.استعلامعنالصرفياتToolStripMenuItem,
+            this.استعلامعنالرواتبToolStripMenuItem});
             this.الاستعلامToolStripMenuItem.Name = "الاستعلامToolStripMenuItem";
             this.الاستعلامToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.الاستعلامToolStripMenuItem.Text = "الاستعلام";
@@ -443,14 +447,28 @@
             // استعلامعنالمستنداتToolStripMenuItem
             // 
             this.استعلامعنالمستنداتToolStripMenuItem.Name = "استعلامعنالمستنداتToolStripMenuItem";
-            this.استعلامعنالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.استعلامعنالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
             this.استعلامعنالمستنداتToolStripMenuItem.Text = "استعلام عن المستندات";
             // 
             // استعلامعنالفواتيرToolStripMenuItem
             // 
             this.استعلامعنالفواتيرToolStripMenuItem.Name = "استعلامعنالفواتيرToolStripMenuItem";
-            this.استعلامعنالفواتيرToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.استعلامعنالفواتيرToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
             this.استعلامعنالفواتيرToolStripMenuItem.Text = "استعلام عن الفواتير";
+            // 
+            // استعلامعنالصرفياتToolStripMenuItem
+            // 
+            this.استعلامعنالصرفياتToolStripMenuItem.Name = "استعلامعنالصرفياتToolStripMenuItem";
+            this.استعلامعنالصرفياتToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
+            this.استعلامعنالصرفياتToolStripMenuItem.Text = "استعلام عن الصرفيات العامة";
+            this.استعلامعنالصرفياتToolStripMenuItem.Click += new System.EventHandler(this.استعلامعنالصرفياتToolStripMenuItem_Click);
+            // 
+            // استعلامعنالرواتبToolStripMenuItem
+            // 
+            this.استعلامعنالرواتبToolStripMenuItem.Name = "استعلامعنالرواتبToolStripMenuItem";
+            this.استعلامعنالرواتبToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
+            this.استعلامعنالرواتبToolStripMenuItem.Text = "استعلام عن الرواتب";
+            this.استعلامعنالرواتبToolStripMenuItem.Click += new System.EventHandler(this.استعلامعنالرواتبToolStripMenuItem_Click);
             // 
             // التقاريرToolStripMenuItem
             // 
@@ -464,13 +482,13 @@
             // الارباحToolStripMenuItem
             // 
             this.الارباحToolStripMenuItem.Name = "الارباحToolStripMenuItem";
-            this.الارباحToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.الارباحToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.الارباحToolStripMenuItem.Text = "الارباح";
             // 
             // الخسائرToolStripMenuItem
             // 
             this.الخسائرToolStripMenuItem.Name = "الخسائرToolStripMenuItem";
-            this.الخسائرToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.الخسائرToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.الخسائرToolStripMenuItem.Text = "الخسائر";
             // 
             // bunifuFlatButton3
@@ -508,6 +526,7 @@
             this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton3.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton3.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
             // 
             // groupBox3
             // 
@@ -641,5 +660,7 @@
         private System.Windows.Forms.ToolStripMenuItem الاستعلامToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem استعلامعنالمستنداتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem استعلامعنالفواتيرToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem استعلامعنالصرفياتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem استعلامعنالرواتبToolStripMenuItem;
     }
 }

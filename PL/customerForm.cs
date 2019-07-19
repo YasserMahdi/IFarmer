@@ -29,5 +29,11 @@ namespace IFarmer.PL
         {
             this.Close();
         }
+
+        private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
+        {
+            PL.customerProfile frm = new customerProfile();
+            frm.ShowDialog();
+        }
     }
 }

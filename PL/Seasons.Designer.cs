@@ -154,6 +154,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 bntEditSeason;
         private Bunifu.Framework.UI.BunifuThinButton2 btnAddSeason;
         private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

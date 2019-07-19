@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DirSales));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtNote = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCusID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bunifuDatepicker1 = new Bunifu.Framework.UI.BunifuDatepicker();
             this.txtID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -56,7 +57,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.txtDebt = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtAmountReceived = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,6 +68,7 @@
             this.groupBox1.Controls.Add(this.btnBrowse);
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.txtCusID);
             this.groupBox1.Location = new System.Drawing.Point(12, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(521, 190);
@@ -124,6 +126,25 @@
             this.txtName.Text = "اسم الزبون";
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // txtCusID
+            // 
+            this.txtCusID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCusID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtCusID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCusID.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCusID.HintText = "";
+            this.txtCusID.isPassword = false;
+            this.txtCusID.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtCusID.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCusID.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtCusID.LineThickness = 3;
+            this.txtCusID.Location = new System.Drawing.Point(67, 32);
+            this.txtCusID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCusID.Name = "txtCusID";
+            this.txtCusID.Size = new System.Drawing.Size(370, 44);
+            this.txtCusID.TabIndex = 12;
+            this.txtCusID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.bunifuDatepicker1);
@@ -171,20 +192,20 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.DoubleBuffered = true;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -422,21 +443,21 @@
             this.txtTotal.TabIndex = 21;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtDebt
+            // txtAmountReceived
             // 
-            this.txtDebt.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtDebt.Location = new System.Drawing.Point(12, 638);
-            this.txtDebt.Name = "txtDebt";
-            this.txtDebt.Size = new System.Drawing.Size(169, 24);
-            this.txtDebt.TabIndex = 22;
-            this.txtDebt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAmountReceived.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtAmountReceived.Location = new System.Drawing.Point(12, 638);
+            this.txtAmountReceived.Name = "txtAmountReceived";
+            this.txtAmountReceived.Size = new System.Drawing.Size(169, 24);
+            this.txtAmountReceived.TabIndex = 22;
+            this.txtAmountReceived.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DirSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 696);
-            this.Controls.Add(this.txtDebt);
+            this.Controls.Add(this.txtAmountReceived);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -496,6 +517,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtTotal;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDebt;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtAmountReceived;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtCusID;
     }
 }

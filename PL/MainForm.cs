@@ -104,5 +104,23 @@ namespace IFarmer.PL
             PL.Expenses frm = new Expenses();
             frm.ShowDialog();
         }
+
+        private void bunifuFlatButton3_Click(object sender, EventArgs e)
+        {
+            PL.Debts frm = new Debts();
+            frm.ShowDialog();
+        }
+
+        private void استعلامعنالصرفياتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.selExpenses frm = new selExpenses();
+            frm.ShowDialog();
+        }
+
+        private void استعلامعنالرواتبToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.salaryQue frm = new salaryQue();
+            frm.Show();
+        }
     }
 }
