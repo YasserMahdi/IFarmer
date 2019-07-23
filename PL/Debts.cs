@@ -16,12 +16,17 @@ namespace IFarmer.PL
         public Debts()
         {
             InitializeComponent();
-            this.bunifuCustomDataGrid1.DataSource = debt.getDebtInfo();
+            this.bunifuCustomDataGrid1.DataSource = debt.final_status_of_debts();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
+        {
+           
         }
     }
 }

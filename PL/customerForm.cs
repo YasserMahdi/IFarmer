@@ -33,6 +33,7 @@ namespace IFarmer.PL
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
             PL.customerProfile frm = new customerProfile();
+            frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString();
             frm.ShowDialog();
         }
     }

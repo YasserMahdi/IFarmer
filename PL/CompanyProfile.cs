@@ -13,6 +13,7 @@ namespace IFarmer.PL
     public partial class CompanyProfile : Form
     {
         BL.CompaniesClass comp = new BL.CompaniesClass();
+        BL.debtClass dbt = new BL.debtClass();
 
         DataTable dt = new DataTable();
 
@@ -40,7 +41,7 @@ namespace IFarmer.PL
             dt.Columns.Add("Column4");// total amount
 
 
-            this.bunifuCustomDataGrid1.DataSource = dt;
+            this.DataGrid1.DataSource = dt;
         }
 
         void clearBoxes()
@@ -78,11 +79,17 @@ namespace IFarmer.PL
             {
                 MessageBox.Show(ex.Message);
             }
+
+
+            
+
         }
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
-
+            PL.DeptHistory frm = new DeptHistory();
+            frm.name = txtName.Text;
+            frm.ShowDialog();
         }
 
         private void txtQte_KeyDown(object sender, KeyEventArgs e)
@@ -93,9 +100,9 @@ namespace IFarmer.PL
                
                 try
                 {
-                    for (int i = 0; i < bunifuCustomDataGrid1.Rows.Count - 1; i++)
+                    for (int i = 0; i < DataGrid1.Rows.Count - 1; i++)
                     {
-                        if (bunifuCustomDataGrid1.Rows[i].Cells[0].Value.ToString() == txtMatName.Text)
+                        if (DataGrid1.Rows[i].Cells[0].Value.ToString() == txtMatName.Text)
                         {
                             MessageBox.Show("هذا المنتج موجود مسبقاً", "تنبية", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             return;
@@ -122,16 +129,17 @@ namespace IFarmer.PL
                 dt.Rows.Add(r);
 
 
-                bunifuCustomDataGrid1.DataSource = dt;
+                DataGrid1.DataSource = dt;
                 clearBoxes();
 
 
 
-                string totalamount = (from DataGridViewRow row in bunifuCustomDataGrid1.Rows
+                string totalamount = (from DataGridViewRow row in DataGrid1.Rows
                                       where row.Cells[3].FormattedValue.ToString() != string.Empty
                                       select (Convert.ToDouble(row.Cells[3].FormattedValue))).Sum().ToString();
 
-                txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
+                // txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
+                txtTotal.Text = totalamount;
 
             }
         }
@@ -147,6 +155,51 @@ namespace IFarmer.PL
         private void txtQte_KeyUp(object sender, KeyEventArgs e)
         {
             calculateAmount();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //set order header
+            comp.add_comp_order(this.txtName.Text, Convert.ToDouble(this.txtTotal.Text));
+
+            //set order tail
+            for (int i = 0; i < DataGrid1.Rows.Count - 1; i++)
+            {
+                comp.add_comp_order_detail(Convert.ToInt32(txtOrderID.Text), this.DataGrid1.Rows[i].Cells[0].Value.ToString(),
+                   Convert.ToInt32(this.DataGrid1.Rows[i].Cells[2].Value), Convert.ToDouble(this.DataGrid1.Rows[i].Cells[1].Value), Convert.ToDouble(this.DataGrid1.Rows[i].Cells[3].Value));
+
+                
+
+            }
+            //set order debts
+            dbt.setCompaniesDebts(Convert.ToInt32( txtOrderID.Text), txtName.Text, Convert.ToDouble(txtTotal.Text));
+
+            MessageBox.Show(" تم الحفظ بنجاح", "عملية الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+            try
+            {
+                this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
+            }
+            catch
+            {
+             
+            }
+
+        }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            PL.compDebtProcess frm = new compDebtProcess();
+            frm.state = "dbt";
+            frm.ShowDialog();
+        }
+
+        private void bunifuThinButton23_Click(object sender, EventArgs e)
+        {
+            PL.compDebtProcess frm = new compDebtProcess();
+            frm.state = "rep";
+            frm.ShowDialog();
         }
     }
 }

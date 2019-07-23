@@ -18,7 +18,7 @@ namespace IFarmer.PL
 
         DataTable dt = new DataTable();
 
-        int money;
+        int totalMoney;
         void calculateAmount()
         {
             if (txtQte.Text != string.Empty && txtMatPrice.Text != string.Empty)
@@ -132,7 +132,7 @@ namespace IFarmer.PL
         {
             try
             {
-                int count; int.TryParse(txtAmountReceived.Text, out count);
+                int rAmount; int.TryParse(txtAmountReceived.Text, out rAmount);
                 int total; int.TryParse(txtTotal.Text, out total);
                 if (txtName.Text == string.Empty)
                 {
@@ -142,7 +142,7 @@ namespace IFarmer.PL
                 {
                     MessageBox.Show("الرجاء ادخال المبلغ الواصل");
                 }
-                else if ((total - count) == 0) // If the invoice is paid
+                else if ((totalMoney - rAmount) == 0) // If the invoice is paid
                 {
 
                     //insert the informations of invoive
@@ -168,7 +168,7 @@ namespace IFarmer.PL
 
                 }
                 //if there are debt 
-                else if ((total - count) > 1)
+                else if ((totalMoney - rAmount) > 1)
                 {
                     //insert the informations of invoive
                     ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
@@ -188,7 +188,7 @@ namespace IFarmer.PL
 
                     BL.debtClass debt = new BL.debtClass();
                     debt.add_debt_detail(Convert.ToInt32(txtID.Text), Convert.ToInt32(txtCusID.Text)
-                        , Convert.ToDouble(total - count));
+                        , Convert.ToDouble(totalMoney - rAmount));
 
 
                     if (MessageBox.Show("تم حفظ الفاتورة و الدين هل تريد طباعة الفاتورة", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -235,7 +235,6 @@ namespace IFarmer.PL
 
                 string Priceformatted = string.Format("{0:n0}", Convert.ToDouble(txtMatPrice.Text));
 
-
                 r[0] = txtMatNo.Text;
                 r[1] = txtMatName.Text;
                 r[2] = Priceformatted;
@@ -243,17 +242,15 @@ namespace IFarmer.PL
                 r[4] = txtAmount.Text;
                 dt.Rows.Add(r);
 
-
                 dataGridView1.DataSource = dt;
                 clearBoxes();
-
-
 
                 string totalamount = (from DataGridViewRow row in dataGridView1.Rows
                                       where row.Cells[4].FormattedValue.ToString() != string.Empty
                                       select (Convert.ToDouble(row.Cells[4].FormattedValue))).Sum().ToString();
 
                 txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
+                totalMoney = Convert.ToInt32(totalamount);
 
 
             }
@@ -345,5 +342,32 @@ namespace IFarmer.PL
             }
         }
 
+        private void txtAmountReceived_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtAmountReceived.Text.Equals("المبلغ الواصل"))
+                {
+                    return;
+                }
+                else if (txtAmountReceived.Text.Equals(""))
+                {
+                    return;
+                }
+                else
+                {
+                    
+
+                    int rRec; int.TryParse(txtAmountReceived.Text, out rRec);
+                    int rReam = (totalMoney - rRec);
+                    txtReamining.Text =Convert.ToString(rReam);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " \n Error in Text changed");
+            }
+        }
     }
 }

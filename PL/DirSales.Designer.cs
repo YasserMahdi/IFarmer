@@ -58,6 +58,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txtAmountReceived = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtReamining = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -429,7 +430,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Location = new System.Drawing.Point(12, 266);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 23);
+            this.label5.Size = new System.Drawing.Size(156, 26);
             this.label5.TabIndex = 20;
             this.label5.Text = "السعر الكلي";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -451,12 +452,23 @@
             this.txtAmountReceived.Size = new System.Drawing.Size(169, 24);
             this.txtAmountReceived.TabIndex = 22;
             this.txtAmountReceived.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAmountReceived.TextChanged += new System.EventHandler(this.txtAmountReceived_TextChanged);
+            // 
+            // txtReamining
+            // 
+            this.txtReamining.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtReamining.Location = new System.Drawing.Point(12, 668);
+            this.txtReamining.Name = "txtReamining";
+            this.txtReamining.Size = new System.Drawing.Size(169, 24);
+            this.txtReamining.TabIndex = 23;
+            this.txtReamining.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DirSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 696);
+            this.ClientSize = new System.Drawing.Size(1111, 699);
+            this.Controls.Add(this.txtReamining);
             this.Controls.Add(this.txtAmountReceived);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label5);
@@ -519,5 +531,6 @@
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtTotal;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtAmountReceived;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtCusID;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtReamining;
     }
 }

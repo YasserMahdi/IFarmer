@@ -78,6 +78,12 @@
     <Compile Include="PL\CompanyProfile.Designer.cs">
       <DependentUpon>CompanyProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\DeptHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\DeptHistory.Designer.cs">
+      <DependentUpon>DeptHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\CurrentSeasons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     </Compile>
     <Compile Include="PL\insCompanies.Designer.cs">
       <DependentUpon>insCompanies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\compDebtProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\compDebtProcess.Designer.cs">
+      <DependentUpon>compDebtProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\insertCustomer.cs">
       <SubType>Form</SubType>
@@ -221,6 +233,9 @@
     <EmbeddedResource Include="PL\CompanyProfile.resx">
       <DependentUpon>CompanyProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\DeptHistory.resx">
+      <DependentUpon>DeptHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\CurrentSeasons.resx">
       <DependentUpon>CurrentSeasons.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\insCompanies.resx">
       <DependentUpon>insCompanies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\compDebtProcess.resx">
+      <DependentUpon>compDebtProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\insertCustomer.resx">
       <DependentUpon>insertCustomer.cs</DependentUpon>

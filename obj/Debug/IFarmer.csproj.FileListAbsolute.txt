@@ -34,3 +34,5 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.OneSeasonsDisburse
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.customerProfile.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.DisplayMaterials.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.salaryQue.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.CompDebtProcess.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.DeptHistory.resources

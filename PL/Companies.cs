@@ -35,7 +35,24 @@ namespace IFarmer.PL
             PL.CompanyProfile frm = new CompanyProfile();
             
             frm.txtName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            
+
+            BL.debtClass dbt = new BL.debtClass();
+            try
+            {
+                frm.txtTotalDebt.Text = dbt.fetchCompaniesDebts(dataGridView1.CurrentRow.Cells[1].Value.ToString()).Rows[0][0].ToString();
+            }
+            catch 
+            {
+                
+            }
+
             frm.ShowDialog();
+        }
+
+        private void Companies_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

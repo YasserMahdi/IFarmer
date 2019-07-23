@@ -52,20 +52,18 @@ namespace IFarmer.BL
         }
 
 
-        public void add_comp_order(int  id, string compName,double amount)
+        public void add_comp_order(string compName,double amount)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
-            SqlParameter[] param = new SqlParameter[3];
+            SqlParameter[] param = new SqlParameter[2];
 
-            param[0] = new SqlParameter("@inv_no", SqlDbType.Int);
-            param[0].Value = id;
 
-            param[1] = new SqlParameter("@comp_name", SqlDbType.NVarChar,50);
-            param[1].Value = compName;
+            param[0] = new SqlParameter("@comp_name", SqlDbType.NVarChar,50);
+            param[0].Value = compName;
 
-            param[2] = new SqlParameter("@amount", SqlDbType.NVarChar, 50);
-            param[2].Value = amount;
+            param[1] = new SqlParameter("@amount", SqlDbType.Money);
+            param[1].Value = amount;
 
 
             DAL.Executecmd("add_comp_order", param);
@@ -79,7 +77,7 @@ namespace IFarmer.BL
             SqlParameter[] param = new SqlParameter[5];
 
 
-            param[0] = new SqlParameter("@product_name", SqlDbType.Int);
+            param[0] = new SqlParameter("@product_name", SqlDbType.NVarChar,50);
             param[0].Value = productName;
 
             param[1] = new SqlParameter("@order_no", SqlDbType.Int);
