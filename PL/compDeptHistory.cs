@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class DeptHistory : Form
+    public partial class compDeptHistory : Form
     {
         public string name;
         BL.debtClass dbt = new BL.debtClass();
-        public DeptHistory()
+        public compDeptHistory()
         {
             InitializeComponent();
         }

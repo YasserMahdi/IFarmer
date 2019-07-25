@@ -1,6 +1,6 @@
 ﻿namespace IFarmer.PL
 {
-    partial class DeptHistory
+    partial class compDeptHistory
     {
         /// <summary>
         /// Required designer variable.

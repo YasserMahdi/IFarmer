@@ -87,5 +87,10 @@ namespace IFarmer.PL
         {
 
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

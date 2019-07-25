@@ -104,6 +104,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtNameSeason);
             this.Name = "insSeason";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "insSeason";
             this.Load += new System.EventHandler(this.insSeason_Load);
             this.ResumeLayout(false);

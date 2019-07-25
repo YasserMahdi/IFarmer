@@ -26,7 +26,22 @@ namespace IFarmer.PL
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
-           
+            PL.customerDebtHistory frm = new customerDebtHistory();
+            try
+            {
+                frm.id = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
+                frm.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
+        {
+           this.bunifuCustomDataGrid1.DataSource = debt.searchInDebt(txtSearch.Text);
         }
     }
 }

@@ -25,8 +25,18 @@ namespace IFarmer.PL
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            son.insSeasons(txtNameSeason.Text,Convert.ToDateTime( dateTimePicker1.Text),Convert.ToDateTime(
-                dateTimePicker2.Text));
+            try
+            {
+                son.insSeasons(txtNameSeason.Text, Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(
+                    dateTimePicker2.Text));
+                MessageBox.Show("تمت الاضافة بنحاج","عملية الاضافة",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                this.Close();
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

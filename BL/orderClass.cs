@@ -39,7 +39,7 @@ namespace IFarmer.BL
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
-            SqlParameter[] param = new SqlParameter[6];
+            SqlParameter[] param = new SqlParameter[7];
 
             param[0] = new SqlParameter("@inv_no", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(inv_no);
@@ -59,6 +59,8 @@ namespace IFarmer.BL
             param[5] = new SqlParameter("@recived", SqlDbType.Money);
             param[5].Value = dept;
 
+            param[6] = new SqlParameter("@isCashed", SqlDbType.NVarChar,50);
+            param[6].Value = isCashed;
 
 
 
@@ -112,5 +114,29 @@ namespace IFarmer.BL
             DAL.close();
             return dt;
         }
+
+
+
+        public DataTable notPaidInCash(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("notPaidInCash", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+
+
+
     }
 }

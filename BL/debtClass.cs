@@ -136,6 +136,46 @@ namespace IFarmer.BL
 
 
 
+        public DataTable userTotalDebt(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("userTotalDebt", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable searchInDebt(string reference)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@reference", SqlDbType.NVarChar,50);
+            param[0].Value = reference;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("searchInDebt", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+
+
+
+
     }
 
 

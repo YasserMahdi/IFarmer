@@ -78,11 +78,17 @@
     <Compile Include="PL\CompanyProfile.Designer.cs">
       <DependentUpon>CompanyProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\DeptHistory.cs">
+    <Compile Include="PL\customerDebtHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\DeptHistory.Designer.cs">
-      <DependentUpon>DeptHistory.cs</DependentUpon>
+    <Compile Include="PL\customerDebtHistory.Designer.cs">
+      <DependentUpon>customerDebtHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\compDeptHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\compDeptHistory.Designer.cs">
+      <DependentUpon>compDeptHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\CurrentSeasons.cs">
       <SubType>Form</SubType>
@@ -233,8 +239,11 @@
     <EmbeddedResource Include="PL\CompanyProfile.resx">
       <DependentUpon>CompanyProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\DeptHistory.resx">
-      <DependentUpon>DeptHistory.cs</DependentUpon>
+    <EmbeddedResource Include="PL\customerDebtHistory.resx">
+      <DependentUpon>customerDebtHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\compDeptHistory.resx">
+      <DependentUpon>compDeptHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\CurrentSeasons.resx">
       <DependentUpon>CurrentSeasons.cs</DependentUpon>

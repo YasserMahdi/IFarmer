@@ -16,13 +16,19 @@ namespace IFarmer.PL
         public Seasons()
         {
             InitializeComponent();
-            this.dataGridView1.DataSource = son.fetchSeasonsNames();
+            
         }
 
         private void btnAddSeason_Click(object sender, EventArgs e)
         {
             PL.insSeason frm = new insSeason();
             frm.ShowDialog();
+        }
+
+        private void Seasons_Load(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = son.fetchSeasonsNames();
+
         }
     }
 }

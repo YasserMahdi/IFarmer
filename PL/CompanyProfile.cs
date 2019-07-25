@@ -87,7 +87,7 @@ namespace IFarmer.PL
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
-            PL.DeptHistory frm = new DeptHistory();
+            PL.compDeptHistory frm = new compDeptHistory();
             frm.name = txtName.Text;
             frm.ShowDialog();
         }

@@ -35,4 +35,5 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.customerProfile.re
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.DisplayMaterials.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.salaryQue.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.CompDebtProcess.resources
-C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.DeptHistory.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.customerDebtHistory.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.compDeptHistory.resources
