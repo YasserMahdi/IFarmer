@@ -135,6 +135,59 @@ namespace IFarmer.BL
 
         }
 
+        public DataTable listinvo()
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("listinvo", null);
+            accessobject.close();
+
+
+            return Dt;
+        }
+
+
+
+
+
+
+        public DataTable searchinInvo(string reference)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 64);
+            param[0].Value = reference;
+
+            accessobject.open();
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("searchinInvo", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable showInvoice(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("showInvoice", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
 
 
 

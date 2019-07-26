@@ -18,5 +18,10 @@ namespace IFarmer.PL
             InitializeComponent();
             this.dataGridView1.DataSource = son.fetchCurrentSeasons();
         }
+
+        private void txtSearch_OnValueChanged(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = son.searchInCurrentSeasons(txtSearch.Text);
+        }
     }
 }

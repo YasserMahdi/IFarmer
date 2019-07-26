@@ -82,7 +82,27 @@ namespace IFarmer.BL
             DAL.close();
         }
 
-        
+
+        public void setDirCompaniesDebts(string comp_name, double moneyOf)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@comp_name", SqlDbType.NVarChar, 50);
+            param[0].Value = comp_name;
+
+            param[1] = new SqlParameter("@moneyOf", SqlDbType.Money);
+            param[1].Value = moneyOf;
+
+            param[2] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[2].Value = DateTime.Now;
+
+
+            DAL.Executecmd("setDirCompaniesDebts", param);
+            DAL.close();
+        }
+
 
 
 
@@ -166,6 +186,24 @@ namespace IFarmer.BL
 
             DataTable Dt = new DataTable();
             Dt = accessobject.selectData("searchInDebt", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable getDebtInfo(string name)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@name", SqlDbType.NVarChar,50);
+            param[0].Value = name;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("getDebtInfo", param);
             accessobject.close();
 
             return Dt;

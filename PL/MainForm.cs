@@ -122,5 +122,29 @@ namespace IFarmer.PL
             PL.salaryQue frm = new salaryQue();
             frm.Show();
         }
+
+        private void استعلامعنالمستنداتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.listDocument frm = new listDocument();
+            frm.ShowDialog();
+        }
+
+        private void انشاءنسخةاحتياطيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.Backup frm = new Backup();
+            frm.ShowDialog();
+        }
+
+        private void استعادةالنسخهالاحتياطيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.Restore frm = new Restore();
+            frm.ShowDialog();
+        }
+
+        private void استعلامعنالفواتيرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.listInvoice frm = new listInvoice();
+            frm.ShowDialog();
+        }
     }
 }

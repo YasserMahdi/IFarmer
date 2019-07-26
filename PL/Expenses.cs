@@ -80,5 +80,10 @@ namespace IFarmer.PL
                 MessageBox.Show("الرجاء اختيار موسم", "تنلبه", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

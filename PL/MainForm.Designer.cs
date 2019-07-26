@@ -323,12 +323,14 @@
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Name = "انشاءنسخةاحتياطيةToolStripMenuItem";
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Text = "انشاء نسخة احتياطية";
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Click += new System.EventHandler(this.انشاءنسخةاحتياطيةToolStripMenuItem_Click);
             // 
             // استعادةالنسخهالاحتياطيةToolStripMenuItem
             // 
             this.استعادةالنسخهالاحتياطيةToolStripMenuItem.Name = "استعادةالنسخهالاحتياطيةToolStripMenuItem";
             this.استعادةالنسخهالاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
             this.استعادةالنسخهالاحتياطيةToolStripMenuItem.Text = "استعادة النسخه الاحتياطية";
+            this.استعادةالنسخهالاحتياطيةToolStripMenuItem.Click += new System.EventHandler(this.استعادةالنسخهالاحتياطيةToolStripMenuItem_Click);
             // 
             // الخروجToolStripMenuItem
             // 
@@ -449,12 +451,14 @@
             this.استعلامعنالمستنداتToolStripMenuItem.Name = "استعلامعنالمستنداتToolStripMenuItem";
             this.استعلامعنالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
             this.استعلامعنالمستنداتToolStripMenuItem.Text = "استعلام عن المستندات";
+            this.استعلامعنالمستنداتToolStripMenuItem.Click += new System.EventHandler(this.استعلامعنالمستنداتToolStripMenuItem_Click);
             // 
             // استعلامعنالفواتيرToolStripMenuItem
             // 
             this.استعلامعنالفواتيرToolStripMenuItem.Name = "استعلامعنالفواتيرToolStripMenuItem";
             this.استعلامعنالفواتيرToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
             this.استعلامعنالفواتيرToolStripMenuItem.Text = "استعلام عن الفواتير";
+            this.استعلامعنالفواتيرToolStripMenuItem.Click += new System.EventHandler(this.استعلامعنالفواتيرToolStripMenuItem_Click);
             // 
             // استعلامعنالصرفياتToolStripMenuItem
             // 
@@ -482,13 +486,13 @@
             // الارباحToolStripMenuItem
             // 
             this.الارباحToolStripMenuItem.Name = "الارباحToolStripMenuItem";
-            this.الارباحToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.الارباحToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
             this.الارباحToolStripMenuItem.Text = "الارباح";
             // 
             // الخسائرToolStripMenuItem
             // 
             this.الخسائرToolStripMenuItem.Name = "الخسائرToolStripMenuItem";
-            this.الخسائرToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.الخسائرToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
             this.الخسائرToolStripMenuItem.Text = "الخسائر";
             // 
             // bunifuFlatButton3

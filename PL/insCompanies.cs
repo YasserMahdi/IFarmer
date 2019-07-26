@@ -12,6 +12,9 @@ namespace IFarmer.PL
 {
     public partial class insCompanies : Form
     {
+        public string state;
+        public int id;
+        BL.CompaniesClass comp = new BL.CompaniesClass();
         public insCompanies()
         {
             InitializeComponent();
@@ -19,8 +22,15 @@ namespace IFarmer.PL
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            BL.CompaniesClass comp = new BL.CompaniesClass();
-            comp.insCompanies(txtInsComp.Text);
+            if (state == "add")
+            {
+                
+                comp.insCompanies(txtInsComp.Text);
+            }
+            else
+            {
+                comp.updateCompaniesInfo(txtInsComp.Text, id);
+            }
         }
     }
 }

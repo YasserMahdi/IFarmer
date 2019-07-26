@@ -100,5 +100,37 @@ namespace IFarmer.BL
             DAL.close();
         }
 
+        public DataTable searchInComp(string txtRef)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 50);
+            param[0].Value = txtRef;
+
+            DataTable dt = new DataTable();
+            dt = DAL.selectData("searchInComp", param);
+            DAL.close();
+
+            return dt;
+
+        }
+
+        public void updateCompaniesInfo(string compName,int id)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@comp_name", SqlDbType.VarChar, 50);
+            param[0].Value = compName;
+
+            param[1] = new SqlParameter("@id", SqlDbType.Int);
+            param[1].Value = id;
+
+            DAL.Executecmd("updateCompaniesInfo", param);
+            DAL.close();
+        }
+
     }
 }

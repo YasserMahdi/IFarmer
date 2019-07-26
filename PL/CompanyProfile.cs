@@ -190,9 +190,18 @@ namespace IFarmer.PL
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            PL.compDebtProcess frm = new compDebtProcess();
-            frm.state = "dbt";
-            frm.ShowDialog();
+            try
+            {
+                PL.compDebtProcess frm = new compDebtProcess();
+                frm.state = "dbt";
+                frm.name = txtName.Text;
+                frm.ShowDialog();
+                this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void bunifuThinButton23_Click(object sender, EventArgs e)
@@ -200,6 +209,11 @@ namespace IFarmer.PL
             PL.compDebtProcess frm = new compDebtProcess();
             frm.state = "rep";
             frm.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

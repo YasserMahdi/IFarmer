@@ -48,6 +48,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtSeasonName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,7 +64,7 @@
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Location = new System.Drawing.Point(551, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(524, 383);
+            this.groupBox2.Size = new System.Drawing.Size(524, 353);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "رواتب عمال";
@@ -167,7 +168,7 @@
             this.groupBox3.Controls.Add(this.btnEpxSave);
             this.groupBox3.Location = new System.Drawing.Point(12, 175);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(533, 383);
+            this.groupBox3.Size = new System.Drawing.Size(533, 353);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "صرفيات  عامة";
@@ -308,15 +309,43 @@
             this.panel1.Size = new System.Drawing.Size(1065, 23);
             this.panel1.TabIndex = 3;
             // 
+            // btnClose
+            // 
+            this.btnClose.ActiveBorderThickness = 1;
+            this.btnClose.ActiveCornerRadius = 20;
+            this.btnClose.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnClose.ActiveForecolor = System.Drawing.Color.White;
+            this.btnClose.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
+            this.btnClose.ButtonText = "خروج";
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnClose.IdleBorderThickness = 1;
+            this.btnClose.IdleCornerRadius = 20;
+            this.btnClose.IdleFillColor = System.Drawing.Color.White;
+            this.btnClose.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnClose.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose.Location = new System.Drawing.Point(71, 532);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(370, 41);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // Expenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 587);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Expenses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expenses";
@@ -351,5 +380,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox txtSeasonName;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
     }
 }

@@ -86,14 +86,14 @@
             this.Controls.Add(this.bunifuThinButton21);
             this.Controls.Add(this.txtInsComp);
             this.Name = "insCompanies";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "insCompanies";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtInsComp;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtInsComp;
     }
 }

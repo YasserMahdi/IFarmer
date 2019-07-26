@@ -54,12 +54,19 @@
     <Compile Include="BL\CompaniesClass.cs" />
     <Compile Include="BL\CustomerClass.cs" />
     <Compile Include="BL\debtClass.cs" />
+    <Compile Include="BL\DocumentClass.cs" />
     <Compile Include="BL\Expenses.cs" />
     <Compile Include="BL\orderClass.cs" />
     <Compile Include="BL\Seasons.cs" />
     <Compile Include="BL\SeedsAndMaterialClass.cs" />
     <Compile Include="BL\testClass.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="PL\Backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Backup.Designer.cs">
+      <DependentUpon>Backup.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\categoriesQue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +187,18 @@
     <Compile Include="PL\listCustomer.Designer.cs">
       <DependentUpon>listCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\listDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\listDocument.Designer.cs">
+      <DependentUpon>listDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\listInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\listInvoice.Designer.cs">
+      <DependentUpon>listInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\listMat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +216,12 @@
     </Compile>
     <Compile Include="PL\OneSeasonsDisbursements.Designer.cs">
       <DependentUpon>OneSeasonsDisbursements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Restore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Restore.Designer.cs">
+      <DependentUpon>Restore.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\salaryQue.cs">
       <SubType>Form</SubType>
@@ -228,8 +253,17 @@
     <Compile Include="PL\selExpenses.Designer.cs">
       <DependentUpon>selExpenses.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\showInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\showInvoice.Designer.cs">
+      <DependentUpon>showInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\Backup.resx">
+      <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\categoriesQue.resx">
       <DependentUpon>categoriesQue.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +324,12 @@
     <EmbeddedResource Include="PL\listCustomer.resx">
       <DependentUpon>listCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\listDocument.resx">
+      <DependentUpon>listDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\listInvoice.resx">
+      <DependentUpon>listInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\listMat.resx">
       <DependentUpon>listMat.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\OneSeasonsDisbursements.resx">
       <DependentUpon>OneSeasonsDisbursements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Restore.resx">
+      <DependentUpon>Restore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\salaryQue.resx">
       <DependentUpon>salaryQue.cs</DependentUpon>
@@ -313,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\selExpenses.resx">
       <DependentUpon>selExpenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\showInvoice.resx">
+      <DependentUpon>showInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -334,7 +380,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

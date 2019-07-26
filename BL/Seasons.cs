@@ -85,5 +85,67 @@ namespace IFarmer.BL
 
 
         }
+
+
+        public DataTable searchInSeasons(string txtRef)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 50);
+            param[0].Value = txtRef;
+
+            DataTable dt = new DataTable();
+            dt = DAL.selectData("searchInSeasons", param);
+            DAL.close();
+
+            return dt;
+
+        }
+
+
+        public DataTable searchInCurrentSeasons(string txtRef)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 50);
+            param[0].Value = txtRef;
+
+            param[1] = new SqlParameter("@dateT", SqlDbType.DateTime);
+            param[1].Value = DateTime.Now;
+
+
+
+            DataTable dt = new DataTable();
+            dt = DAL.selectData("searchInCurrentSeasons", param);
+            DAL.close();
+
+            return dt;
+
+        }
+
+        public DataTable searchInFinisheSeasons(string txtRef)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 50);
+            param[0].Value = txtRef;
+
+            param[1] = new SqlParameter("@dateT", SqlDbType.DateTime);
+            param[1].Value = DateTime.Now;
+
+
+
+            DataTable dt = new DataTable();
+            dt = DAL.selectData("searchInFinisheSeasons", param);
+            DAL.close();
+
+            return dt;
+
+        }
+
+
     }
 }

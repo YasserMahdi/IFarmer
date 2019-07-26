@@ -37,3 +37,8 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.salaryQue.resource
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.CompDebtProcess.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.customerDebtHistory.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.compDeptHistory.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.Backup.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.Restore.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.listDocument.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.listInvoice.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.showInvoice.resources

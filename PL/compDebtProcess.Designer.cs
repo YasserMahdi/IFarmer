@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(compDebtProcess));
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnSave = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.txtSal = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtMoney = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel2
@@ -67,35 +67,36 @@
             this.btnSave.Size = new System.Drawing.Size(370, 41);
             this.btnSave.TabIndex = 12;
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtSal
+            // txtMoney
             // 
-            this.txtSal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSal.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtSal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSal.HintForeColor = System.Drawing.Color.Empty;
-            this.txtSal.HintText = "";
-            this.txtSal.isPassword = false;
-            this.txtSal.LineFocusedColor = System.Drawing.Color.Blue;
-            this.txtSal.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtSal.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.txtSal.LineThickness = 3;
-            this.txtSal.Location = new System.Drawing.Point(87, 88);
-            this.txtSal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSal.Name = "txtSal";
-            this.txtSal.Size = new System.Drawing.Size(370, 44);
-            this.txtSal.TabIndex = 11;
-            this.txtSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtMoney.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMoney.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtMoney.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtMoney.HintForeColor = System.Drawing.Color.Empty;
+            this.txtMoney.HintText = "";
+            this.txtMoney.isPassword = false;
+            this.txtMoney.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtMoney.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtMoney.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtMoney.LineThickness = 3;
+            this.txtMoney.Location = new System.Drawing.Point(87, 88);
+            this.txtMoney.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(370, 44);
+            this.txtMoney.TabIndex = 11;
+            this.txtMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // CompDebtProcess
+            // compDebtProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 291);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtSal);
-            this.Name = "CompDebtProcess";
+            this.Controls.Add(this.txtMoney);
+            this.Name = "compDebtProcess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الديون";
             this.ResumeLayout(false);
@@ -107,6 +108,6 @@
 
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSave;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtSal;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtMoney;
     }
 }

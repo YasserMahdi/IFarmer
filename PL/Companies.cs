@@ -21,12 +21,13 @@ namespace IFarmer.PL
 
         private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
         {
-
+            this.dataGridView1.DataSource = comp.searchInComp(txtSearch.Text);
         }
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
             PL.insCompanies frm = new insCompanies();
+            frm.state = "add";
             frm.ShowDialog();
         }
 
@@ -53,6 +54,22 @@ namespace IFarmer.PL
         private void Companies_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            PL.insCompanies frm = new insCompanies();
+            frm.state = "update";
+            frm.id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+            frm.txtInsComp.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            MessageBox.Show("تم التحديث بنجاح");
+            frm.ShowDialog();
+            this.dataGridView1.DataSource = comp.fetchCompanyNames();
         }
     }
 }
