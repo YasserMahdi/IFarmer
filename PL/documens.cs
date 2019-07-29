@@ -14,8 +14,11 @@ namespace IFarmer.PL
     {
         BL.DocumentClass doc = new BL.DocumentClass();
         DataTable dt = new DataTable();
+        //DataTable dt_Seasonal_disbursements = new DataTable();
+        double Seasonal_disbursements = 0.0;
         int totalMoney;
         BL.debtClass debt = new BL.debtClass();
+        BL.Report rpt = new BL.Report();
 
 
         void calculateAmount()
@@ -50,6 +53,8 @@ namespace IFarmer.PL
             dt.Columns.Add("PRICE");// price
             dt.Columns.Add("AMOUNT");// total amount
 
+            
+
 
             this.dataGridView1.DataSource = dt;
         }
@@ -71,6 +76,7 @@ namespace IFarmer.PL
             PL.listCurrentSeasons frm = new listCurrentSeasons();
             frm.ShowDialog();
             this.txtSeasonName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            this.txtSeasonID.Text = frm.dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void btnSelection_Click(object sender, EventArgs e)
@@ -82,7 +88,7 @@ namespace IFarmer.PL
                 clearBoxes();
                 txtMatNo.Text = mat.dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 txtMatName.Text = mat.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                txtMatPrice.Text = mat.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                txtMatPrice.Text = mat.dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 txtQte.Focus();
 
 
@@ -144,14 +150,15 @@ namespace IFarmer.PL
 
                     //insert the informations of invoive
                     doc.add_doc(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(
-                        txtTotal.Text), Convert.ToDouble(txtAmountReceived.Text), Convert.ToDouble(txtReamining.Text));
+                        txtTotal.Text), Convert.ToDouble(txtAmountReceived.Text), Convert.ToDouble(txtReamining.Text)
+                        ,Convert.ToInt32(txtSeasonID.Text),bunifuDatepicker1.Value);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
 
                         doc.add_doc_detail(Convert.ToInt32(this.dataGridView1.Rows[i].Cells[0].Value),
-                            Convert.ToInt32(txtID.Text),Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value),
+                            Convert.ToInt32(txtID.Text), Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value),
                             Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value),
                             Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value));
 
@@ -159,7 +166,7 @@ namespace IFarmer.PL
 
                     if (MessageBox.Show("تم الحفظ بنجاح هل تريد طباعة الفاتورة ", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        
+
                     }
 
                 }
@@ -168,7 +175,8 @@ namespace IFarmer.PL
                 {
                     //insert the informations of invoive
                     doc.add_doc(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(
-                        txtTotal.Text), Convert.ToDouble(txtAmountReceived.Text), Convert.ToDouble(txtReamining.Text));
+                        txtTotal.Text), Convert.ToDouble(txtAmountReceived.Text), Convert.ToDouble(txtReamining.Text)
+                        , Convert.ToInt32(txtSeasonID.Text),bunifuDatepicker1.Value);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
@@ -191,8 +199,23 @@ namespace IFarmer.PL
 
                 }
 
+                
 
+                // set seasonal_revenue
+                rpt.set_seasonal_revenue(Convert.ToInt32(txtSeasonID.Text), totalMoney);
 
+                
+
+                // coumput Prices of articles
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+
+                    Seasonal_disbursements += Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value) *
+                        Convert.ToDouble(rpt.get_purchasing_price(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value)).Rows[0][0]);
+
+                }
+                // set Seasonal_disbursements
+                rpt.set_Seasonal_disbursements(Convert.ToInt32(txtSeasonID.Text), Seasonal_disbursements);
             }
             catch (Exception ex)
             {
@@ -234,12 +257,17 @@ namespace IFarmer.PL
                 r[4] = txtAmount.Text;
                 dt.Rows.Add(r);
 
+
                 dataGridView1.DataSource = dt;
                 clearBoxes();
 
                 string totalamount = (from DataGridViewRow row in dataGridView1.Rows
                                       where row.Cells[4].FormattedValue.ToString() != string.Empty
                                       select (Convert.ToDouble(row.Cells[4].FormattedValue))).Sum().ToString();
+
+
+
+             
 
                 txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
                 totalMoney = Convert.ToInt32(totalamount);
@@ -263,6 +291,7 @@ namespace IFarmer.PL
         {
             txtID.Text = doc.getIDforDoc().Rows[0][0].ToString();
             createColumns();
+            this.bunifuDatepicker1.Value = DateTime.Now;
         }
 
         private void txtAmountReceived_TextChanged(object sender, EventArgs e)

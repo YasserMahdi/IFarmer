@@ -12,6 +12,8 @@ namespace IFarmer.PL
 {
     public partial class insertCustomer : Form
     {
+        public string state;
+        public int UserID;
         public insertCustomer()
         {
             InitializeComponent();
@@ -26,19 +28,38 @@ namespace IFarmer.PL
         private void bntSave_Click(object sender, EventArgs e)
         {
             BL.CustomerClass obj = new BL.CustomerClass();
+
             try
             {
-                if (txtName.Text != string.Empty && txtPhone.Text != string.Empty 
-                    && txtPhone.Text != "رقم الهاتف " && txtName.Text != "اسم الزبون ")
+                if (state == "add")
                 {
-                    obj.insertCus(txtName.Text, txtPhone.Text);
-                    MessageBox.Show("تم الحفظ بنجاح", "عملية الحفظ",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                    if (txtName.Text != string.Empty && txtPhone.Text != string.Empty
+                        && txtPhone.Text != "رقم الهاتف " && txtName.Text != "اسم الزبون ")
+                    {
+                        obj.insertCus(txtName.Text, txtPhone.Text);
+                        MessageBox.Show("تم الحفظ بنجاح", "عملية الحفظ",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
 
+                    else
+                    {
+                        MessageBox.Show("الرجاء ادخال المعلومات");
+                    }
+                }
                 else
                 {
-                    MessageBox.Show("الرجاء ادخال المعلومات");
+                    if (txtName.Text != string.Empty && txtPhone.Text != string.Empty
+                        && txtPhone.Text != "رقم الهاتف " && txtName.Text != "اسم الزبون ")
+                    {
+                        obj.updateCus(txtName.Text, txtPhone.Text, UserID);
+                        MessageBox.Show("تم الحفظ بنجاح", "عملية الحفظ",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("الرجاء ادخال المعلومات");
+                    }
                 }
             }
             catch(Exception ex)

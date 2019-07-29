@@ -35,7 +35,7 @@ namespace IFarmer.BL
 
         }
 
-        public void add_order(int customerID, string inv_no, string note, double total_ammount, double dept,string isCashed)
+        public void add_order(int customerID, string inv_no, string note, double total_ammount, double dept,string isCashed, DateTime DateT)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -45,7 +45,7 @@ namespace IFarmer.BL
             param[0].Value = Convert.ToInt32(inv_no);
 
             param[1] = new SqlParameter("@inv_date", SqlDbType.DateTime);
-            param[1].Value = DateTime.Now;
+            param[1].Value = DateT;
 
             param[2] = new SqlParameter("@note", SqlDbType.NVarChar, 50);
             param[2].Value = note;
@@ -170,7 +170,7 @@ namespace IFarmer.BL
 
         }
 
-        public DataTable showInvoice(int id)
+        public DataTable showInvoice_details(int id)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
 
@@ -188,6 +188,23 @@ namespace IFarmer.BL
 
         }
 
+        public DataTable showInvoice_head(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("showInvoice_head", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
 
 
 

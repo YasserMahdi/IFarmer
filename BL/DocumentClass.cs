@@ -34,17 +34,17 @@ namespace IFarmer.BL
 
         }
 
-        public void add_doc(int customerID, string id, string note, double total_ammount, double paid, Double rest)
+        public void add_doc(int customerID, string id, string note, double total_ammount, double paid, Double rest,int season_id,DateTime dateT)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
-            SqlParameter[] param = new SqlParameter[7];
+            SqlParameter[] param = new SqlParameter[8];
 
             param[0] = new SqlParameter("@id", SqlDbType.Int);
             param[0].Value = Convert.ToInt32(id);
 
             param[1] = new SqlParameter("@doc_date", SqlDbType.DateTime);
-            param[1].Value = DateTime.Now;
+            param[1].Value = dateT;
 
             param[2] = new SqlParameter("@note", SqlDbType.NVarChar, 50);
             param[2].Value = note;
@@ -61,6 +61,8 @@ namespace IFarmer.BL
             param[6] = new SqlParameter("@rest", SqlDbType.Money);
             param[6].Value = rest;
 
+            param[7] = new SqlParameter("@season_id", SqlDbType.Money);
+            param[7].Value = season_id;
 
 
             DAL.Executecmd("add_doc", param);
@@ -147,6 +149,25 @@ namespace IFarmer.BL
 
         }
 
+
+        public DataTable unPaidDoc(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            accessobject.open();
+            Dt = accessobject.selectData("unpaidDoc", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
 
 
 

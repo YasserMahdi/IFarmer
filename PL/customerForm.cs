@@ -24,7 +24,9 @@ namespace IFarmer.PL
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PL.insertCustomer frm = new insertCustomer();
+            frm.state = "add";
             frm.ShowDialog();
+            this.bunifuCustomDataGrid1.DataSource = customer.getCustomerInfo();
         }
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
@@ -47,6 +49,17 @@ namespace IFarmer.PL
                
             }
             frm.ShowDialog();
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            PL.insertCustomer frm = new insertCustomer();
+            frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString();
+            frm.txtPhone.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[2].Value.ToString();
+            frm.UserID = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
+            frm.state = "update";
+            frm.ShowDialog();
+            this.bunifuCustomDataGrid1.DataSource = customer.getCustomerInfo();
         }
     }
 }

@@ -34,7 +34,6 @@
             this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txtSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
@@ -74,7 +73,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnClose);
-            this.groupBox1.Controls.Add(this.bunifuThinButton21);
             this.groupBox1.Location = new System.Drawing.Point(12, 462);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1018, 64);
@@ -100,38 +98,13 @@
             this.btnClose.IdleFillColor = System.Drawing.Color.White;
             this.btnClose.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnClose.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.Location = new System.Drawing.Point(312, 15);
+            this.btnClose.Location = new System.Drawing.Point(408, 15);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(181, 41);
             this.btnClose.TabIndex = 4;
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // bunifuThinButton21
-            // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.SystemColors.Control;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "دين جديد";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(503, 15);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(181, 41);
-            this.bunifuThinButton21.TabIndex = 0;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtSearch
             // 
@@ -185,7 +158,6 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtSearch;
         private System.Windows.Forms.Panel panel1;
     }

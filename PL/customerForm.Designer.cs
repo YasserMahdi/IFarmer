@@ -37,7 +37,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnModify = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnDel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -105,7 +104,6 @@
             // 
             this.groupBox1.Controls.Add(this.bunifuThinButton21);
             this.groupBox1.Controls.Add(this.btnModify);
-            this.groupBox1.Controls.Add(this.btnDel);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Location = new System.Drawing.Point(12, 375);
             this.groupBox1.Name = "groupBox1";
@@ -132,7 +130,7 @@
             this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
             this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(14, 37);
+            this.bunifuThinButton21.Location = new System.Drawing.Point(103, 40);
             this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuThinButton21.Name = "bunifuThinButton21";
             this.bunifuThinButton21.Size = new System.Drawing.Size(181, 41);
@@ -158,37 +156,13 @@
             this.btnModify.IdleFillColor = System.Drawing.Color.White;
             this.btnModify.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnModify.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnModify.Location = new System.Drawing.Point(205, 37);
+            this.btnModify.Location = new System.Drawing.Point(294, 40);
             this.btnModify.Margin = new System.Windows.Forms.Padding(5);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(181, 41);
             this.btnModify.TabIndex = 2;
             this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDel
-            // 
-            this.btnDel.ActiveBorderThickness = 1;
-            this.btnDel.ActiveCornerRadius = 20;
-            this.btnDel.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnDel.ActiveForecolor = System.Drawing.Color.White;
-            this.btnDel.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnDel.BackColor = System.Drawing.SystemColors.Control;
-            this.btnDel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDel.BackgroundImage")));
-            this.btnDel.ButtonText = "حذف";
-            this.btnDel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnDel.IdleBorderThickness = 1;
-            this.btnDel.IdleCornerRadius = 20;
-            this.btnDel.IdleFillColor = System.Drawing.Color.White;
-            this.btnDel.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnDel.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnDel.Location = new System.Drawing.Point(396, 37);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(5);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(181, 41);
-            this.btnDel.TabIndex = 1;
-            this.btnDel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnAdd
             // 
@@ -208,7 +182,7 @@
             this.btnAdd.IdleFillColor = System.Drawing.Color.White;
             this.btnAdd.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnAdd.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnAdd.Location = new System.Drawing.Point(587, 37);
+            this.btnAdd.Location = new System.Drawing.Point(485, 40);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(181, 41);
@@ -242,7 +216,6 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnModify;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnDel;
         private Bunifu.Framework.UI.BunifuThinButton2 btnAdd;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
     }

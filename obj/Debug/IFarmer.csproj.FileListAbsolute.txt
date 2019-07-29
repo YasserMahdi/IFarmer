@@ -42,3 +42,5 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.Restore.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.listDocument.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.listInvoice.resources
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.showInvoice.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.updateTypes.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.profit.resources

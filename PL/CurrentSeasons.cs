@@ -23,5 +23,10 @@ namespace IFarmer.PL
         {
             this.dataGridView1.DataSource = son.searchInCurrentSeasons(txtSearch.Text);
         }
+
+        private void CurrentSeasons_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

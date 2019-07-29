@@ -17,13 +17,14 @@ namespace IFarmer.PL
         public seedAndMaterialForm()
         {
             InitializeComponent();
-            this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo();
+            
         }
 
         private void bntAdd_Click(object sender, EventArgs e)
         {
             PL.insSeedsAndMaterial frm = new insSeedsAndMaterial();
             frm.ShowDialog();
+            this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -42,11 +43,30 @@ namespace IFarmer.PL
                 seed.BringSeedsByType(this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString());
                 frm.ShowDialog();
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("لا يوجد شيئ");
             }
-            
 
+
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PL.updateTypes frm = new updateTypes();
+                frm.txtCatName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString();
+                frm.typeID = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
+                frm.ShowDialog();
+                this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void seedAndMaterialForm_Load(object sender, EventArgs e)
+        {
+            this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo();
         }
     }
 }

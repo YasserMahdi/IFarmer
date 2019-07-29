@@ -29,6 +29,7 @@ namespace IFarmer.PL
             PL.insCompanies frm = new insCompanies();
             frm.state = "add";
             frm.ShowDialog();
+            this.dataGridView1.DataSource = comp.fetchCompanyNames();
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -63,13 +64,19 @@ namespace IFarmer.PL
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
-            PL.insCompanies frm = new insCompanies();
-            frm.state = "update";
-            frm.id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
-            frm.txtInsComp.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            MessageBox.Show("تم التحديث بنجاح");
-            frm.ShowDialog();
-            this.dataGridView1.DataSource = comp.fetchCompanyNames();
+            try
+            {
+                PL.insCompanies frm = new insCompanies();
+                frm.state = "update";
+                frm.id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+                frm.txtInsComp.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                frm.ShowDialog();
+                this.dataGridView1.DataSource = comp.fetchCompanyNames();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

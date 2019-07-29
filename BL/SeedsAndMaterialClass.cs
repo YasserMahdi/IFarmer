@@ -10,7 +10,7 @@ namespace IFarmer.BL
 {
     class SeedsAndMaterialClass
     {
-        public void insertMtr(string nameMtr, Double buyPrice, Double salePrice, int quantity,string type)
+        public void insertMtr(string nameMtr, Double buyPrice, Double salePrice, int quantity, string type)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -63,16 +63,16 @@ namespace IFarmer.BL
 
             foreach (DataRow row in Dt.Rows)
             {
-              //  try
-              //  {
+                //  try
+                //  {
                 //    row["سعر الشراء"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر الشراء"]));
-//
-             //       row["سعر البيع"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر البيع"]));
-              //  }
-             //   catch (Exception ex)
-              //  {
+                //
+                //       row["سعر البيع"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر البيع"]));
+                //  }
+                //   catch (Exception ex)
+                //  {
 
-              //  }
+                //  }
             }
 
 
@@ -110,6 +110,24 @@ namespace IFarmer.BL
             return Dt;
 
         }
+
+        public void updateTypes(string catName, int id)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@name", SqlDbType.VarChar, 50);
+            param[0].Value = catName;
+
+            param[1] = new SqlParameter("@id", SqlDbType.Int);
+            param[1].Value = id;
+
+            DAL.Executecmd("updateTypes", param);
+            DAL.close();
+        }
+
+
 
 
 

@@ -63,7 +63,6 @@
             this.استعلامعنالرواتبToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.التقاريرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الارباحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخسائرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -477,8 +476,7 @@
             // التقاريرToolStripMenuItem
             // 
             this.التقاريرToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.الارباحToolStripMenuItem,
-            this.الخسائرToolStripMenuItem});
+            this.الارباحToolStripMenuItem});
             this.التقاريرToolStripMenuItem.Name = "التقاريرToolStripMenuItem";
             this.التقاريرToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.التقاريرToolStripMenuItem.Text = "التقارير";
@@ -486,14 +484,9 @@
             // الارباحToolStripMenuItem
             // 
             this.الارباحToolStripMenuItem.Name = "الارباحToolStripMenuItem";
-            this.الارباحToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
-            this.الارباحToolStripMenuItem.Text = "الارباح";
-            // 
-            // الخسائرToolStripMenuItem
-            // 
-            this.الخسائرToolStripMenuItem.Name = "الخسائرToolStripMenuItem";
-            this.الخسائرToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
-            this.الخسائرToolStripMenuItem.Text = "الخسائر";
+            this.الارباحToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.الارباحToolStripMenuItem.Text = "تقارير الارباح و الخسائر";
+            this.الارباحToolStripMenuItem.Click += new System.EventHandler(this.الارباحToolStripMenuItem_Click);
             // 
             // bunifuFlatButton3
             // 
@@ -658,7 +651,6 @@
         private System.Windows.Forms.ToolStripMenuItem المواسمالحاليةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem المواسمالمنتهيةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الارباحToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخسائرToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الشركاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem عرضالشركاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الاستعلامToolStripMenuItem;

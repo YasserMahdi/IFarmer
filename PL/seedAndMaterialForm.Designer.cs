@@ -157,6 +157,7 @@
             this.btnModify.Size = new System.Drawing.Size(181, 41);
             this.btnModify.TabIndex = 2;
             this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnDelete
             // 
@@ -230,6 +231,7 @@
             this.Name = "seedAndMaterialForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "seedAndMaterialForm";
+            this.Load += new System.EventHandler(this.seedAndMaterialForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

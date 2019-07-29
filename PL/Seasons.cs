@@ -23,6 +23,7 @@ namespace IFarmer.PL
         {
             PL.insSeason frm = new insSeason();
             frm.ShowDialog();
+            this.dataGridView1.DataSource = son.fetchSeasonsNames();
         }
 
         private void Seasons_Load(object sender, EventArgs e)

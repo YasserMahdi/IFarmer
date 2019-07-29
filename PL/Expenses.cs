@@ -13,6 +13,9 @@ namespace IFarmer.PL
     public partial class Expenses : Form
     {
         BL.Expenses exp = new BL.Expenses();
+        BL.Report rpt = new BL.Report();
+        public int seasonID;
+        public string name;
         public Expenses()
         {
             InitializeComponent();
@@ -29,6 +32,7 @@ namespace IFarmer.PL
             {
                 exp.insSalary(txtName.Text, Convert.ToDouble(txtSal.Text), dateTimePicker1.Value);
                 MessageBox.Show("تم العملية بنجاح", "الرواتب", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                rpt.set_seasonal_disbursements_invo_sal_dis(Convert.ToDouble(txtSal.Text));
                 
             }
             catch(Exception ex)
@@ -43,6 +47,7 @@ namespace IFarmer.PL
             {
                 exp.insExpenses(txtFor.Text, Convert.ToDouble(txtAmount.Text), dateTimePicker2.Value);
                 MessageBox.Show("تم العملية بنجاح", "الرواتب", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                rpt.set_seasonal_disbursements_invo_sal_dis(Convert.ToDouble(txtSal.Text));
             }
             catch(Exception ex)
             {
@@ -54,10 +59,14 @@ namespace IFarmer.PL
         {
             PL.listCurrentSeasons frm = new listCurrentSeasons();
             //this.textBox1.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            
             frm.ShowDialog();
             try
             {
                 this.txtSeasonName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                this.seasonID = Convert.ToInt32(frm.dataGridView1.CurrentRow.Cells[0].Value);
+                this.name =frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
             }
             catch
             {
@@ -72,6 +81,8 @@ namespace IFarmer.PL
                     , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     PL.OneSeasonsDisbursements frm = new OneSeasonsDisbursements();
+                    frm.txtID.Text = seasonID.ToString();
+                    frm.txtName.Text = name;
                     frm.ShowDialog();
                 }
             }

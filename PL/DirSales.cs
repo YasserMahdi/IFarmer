@@ -15,9 +15,9 @@ namespace IFarmer.PL
     public partial class DirSales : Form
     {
         BL.orderClass ord = new BL.orderClass();
-
+        BL.Report rpt = new BL.Report();
         DataTable dt = new DataTable();
-
+        double Seasonal_disbursements;
         int totalMoney;
         void calculateAmount()
         {
@@ -62,13 +62,16 @@ namespace IFarmer.PL
         {
             InitializeComponent();
             createColumns();
-            txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
             this.txtTotal.Text = "المبلغ الكلي";
             this.txtAmountReceived.Text = "المبلغ الواصل";
+            this.txtReamining.Text = "المبلغ الباقي";
             this.txtTotal.Leave += new System.EventHandler(this.txtTotal_Leave);
             this.txtTotal.Enter += new System.EventHandler(this.txtTotal_Enter);
             this.txtAmountReceived.Leave += new System.EventHandler(this.txtAmountReceived_Leave);
             this.txtAmountReceived.Enter += new System.EventHandler(this.txtAmountReceived_Enter);
+            this.txtReamining.Leave += new System.EventHandler(this.txtReamining_Leave);
+            this.txtReamining.Enter += new System.EventHandler(this.txtReamining_Enter);
+
 
 
         }
@@ -108,7 +111,7 @@ namespace IFarmer.PL
                 clearBoxes();
                 txtMatNo.Text = mat.dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 txtMatName.Text = mat.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                txtMatPrice.Text = mat.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                txtMatPrice.Text = mat.dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 txtQte.Focus();
 
 
@@ -147,7 +150,7 @@ namespace IFarmer.PL
 
                     //insert the informations of invoive
                     ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
-                        Convert.ToDouble(0), "YES");
+                        Convert.ToDouble(0), "YES",bunifuDatepicker1.Value);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
@@ -172,7 +175,7 @@ namespace IFarmer.PL
                 {
                     //insert the informations of invoive
                     ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
-                        Convert.ToDouble(0), "NO");
+                        Convert.ToDouble(0), "NO" ,bunifuDatepicker1.Value);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
@@ -199,6 +202,23 @@ namespace IFarmer.PL
                 }
 
 
+
+                // set Seasonal_revenue from invoice
+
+                rpt.set_Seasonal_revenue_from_invoice(totalMoney);
+
+                // coumput Prices of articles
+
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+
+                    Seasonal_disbursements += Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value) *
+                        Convert.ToDouble(rpt.get_purchasing_price(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value)).Rows[0][0]);
+
+                }
+                // set Seasonal_disbursements
+                rpt.set_seasonal_disbursements_invo_sal_dis(Seasonal_disbursements);
+                Seasonal_disbursements = 0.0;
 
             }
             catch (Exception ex)
@@ -230,27 +250,33 @@ namespace IFarmer.PL
                     MessageBox.Show(ex.Message);
                 }
 
+                try
+                {
+                    DataRow r = dt.NewRow();
 
-                DataRow r = dt.NewRow();
+                    string Priceformatted = string.Format("{0:n0}", Convert.ToDouble(txtMatPrice.Text));
 
-                string Priceformatted = string.Format("{0:n0}", Convert.ToDouble(txtMatPrice.Text));
+                    r[0] = txtMatNo.Text;
+                    r[1] = txtMatName.Text;
+                    r[2] = Priceformatted;
+                    r[3] = txtQte.Text;
+                    r[4] = txtAmount.Text;
+                    dt.Rows.Add(r);
 
-                r[0] = txtMatNo.Text;
-                r[1] = txtMatName.Text;
-                r[2] = Priceformatted;
-                r[3] = txtQte.Text;
-                r[4] = txtAmount.Text;
-                dt.Rows.Add(r);
+                    dataGridView1.DataSource = dt;
+                    clearBoxes();
 
-                dataGridView1.DataSource = dt;
-                clearBoxes();
+                    string totalamount = (from DataGridViewRow row in dataGridView1.Rows
+                                          where row.Cells[4].FormattedValue.ToString() != string.Empty
+                                          select (Convert.ToDouble(row.Cells[4].FormattedValue))).Sum().ToString();
 
-                string totalamount = (from DataGridViewRow row in dataGridView1.Rows
-                                      where row.Cells[4].FormattedValue.ToString() != string.Empty
-                                      select (Convert.ToDouble(row.Cells[4].FormattedValue))).Sum().ToString();
-
-                txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
-                totalMoney = Convert.ToInt32(totalamount);
+                    txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
+                    totalMoney = Convert.ToInt32(totalamount);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
 
             }
@@ -369,5 +395,32 @@ namespace IFarmer.PL
                 MessageBox.Show(ex.Message + " \n Error in Text changed");
             }
         }
+
+        private void DirSales_Load(object sender, EventArgs e)
+        {
+            txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
+            this.bunifuDatepicker1.Value = DateTime.Now;
+        }
+
+        private void txtReamining_Enter(object sender, EventArgs e)
+        {
+            if (txtReamining.Text == "المبلغ الباقي")
+            {
+                txtReamining.Text = "";
+                txtReamining.ForeColor = SystemColors.WindowText;
+            }
+        }
+        private void txtReamining_Leave(object sender, EventArgs e)
+        {
+            if (txtReamining.Text.Length == 0)
+            {
+                txtReamining.Text = "المبلغ الباقي";
+                txtReamining.ForeColor = SystemColors.GrayText;
+            }
+
+        }
+
+
+
     }
 }

@@ -66,6 +66,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtSeasonID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -325,6 +326,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtSeasonID);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.txtSeasonName);
             this.groupBox2.Controls.Add(this.bunifuDatepicker1);
@@ -358,10 +360,10 @@
             this.txtSeasonName.LineIdleColor = System.Drawing.Color.Gray;
             this.txtSeasonName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtSeasonName.LineThickness = 3;
-            this.txtSeasonName.Location = new System.Drawing.Point(38, 180);
+            this.txtSeasonName.Location = new System.Drawing.Point(144, 180);
             this.txtSeasonName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSeasonName.Name = "txtSeasonName";
-            this.txtSeasonName.Size = new System.Drawing.Size(370, 44);
+            this.txtSeasonName.Size = new System.Drawing.Size(264, 44);
             this.txtSeasonName.TabIndex = 14;
             this.txtSeasonName.Text = "اختيار المواسم";
             this.txtSeasonName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -563,6 +565,26 @@
             this.bunifuCustomLabel3.TabIndex = 46;
             this.bunifuCustomLabel3.Text = "المبلغ الباقي";
             // 
+            // txtSeasonID
+            // 
+            this.txtSeasonID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSeasonID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtSeasonID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSeasonID.HintForeColor = System.Drawing.Color.Empty;
+            this.txtSeasonID.HintText = "";
+            this.txtSeasonID.isPassword = false;
+            this.txtSeasonID.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtSeasonID.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtSeasonID.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtSeasonID.LineThickness = 3;
+            this.txtSeasonID.Location = new System.Drawing.Point(7, 180);
+            this.txtSeasonID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSeasonID.Name = "txtSeasonID";
+            this.txtSeasonID.Size = new System.Drawing.Size(129, 44);
+            this.txtSeasonID.TabIndex = 16;
+            this.txtSeasonID.Text = "معرف الموسم";
+            this.txtSeasonID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // documens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -642,5 +664,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtCusID;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtSeasonID;
     }
 }

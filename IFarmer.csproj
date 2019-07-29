@@ -57,9 +57,9 @@
     <Compile Include="BL\DocumentClass.cs" />
     <Compile Include="BL\Expenses.cs" />
     <Compile Include="BL\orderClass.cs" />
+    <Compile Include="BL\Report.cs" />
     <Compile Include="BL\Seasons.cs" />
     <Compile Include="BL\SeedsAndMaterialClass.cs" />
-    <Compile Include="BL\testClass.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
     <Compile Include="PL\Backup.cs">
       <SubType>Form</SubType>
@@ -205,6 +205,12 @@
     <Compile Include="PL\listMat.Designer.cs">
       <DependentUpon>listMat.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\losses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\losses.Designer.cs">
+      <DependentUpon>losses.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,12 @@
     </Compile>
     <Compile Include="PL\OneSeasonsDisbursements.Designer.cs">
       <DependentUpon>OneSeasonsDisbursements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\profit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\profit.Designer.cs">
+      <DependentUpon>profit.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Restore.cs">
       <SubType>Form</SubType>
@@ -258,6 +270,12 @@
     </Compile>
     <Compile Include="PL\showInvoice.Designer.cs">
       <DependentUpon>showInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\updateTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\updateTypes.Designer.cs">
+      <DependentUpon>updateTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -339,6 +357,9 @@
     <EmbeddedResource Include="PL\OneSeasonsDisbursements.resx">
       <DependentUpon>OneSeasonsDisbursements.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\profit.resx">
+      <DependentUpon>profit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\showInvoice.resx">
       <DependentUpon>showInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\updateTypes.resx">
+      <DependentUpon>updateTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

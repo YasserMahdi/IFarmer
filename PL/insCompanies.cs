@@ -24,12 +24,20 @@ namespace IFarmer.PL
         {
             if (state == "add")
             {
-                
-                comp.insCompanies(txtInsComp.Text);
+                if (txtInsComp.Text != string.Empty)
+                {
+                    comp.insCompanies(txtInsComp.Text);
+                    MessageBox.Show("تم اضافة الشركة الجديده بنجاح");
+                }
+                else
+                {
+                    MessageBox.Show("الرجاء ادخال المعلومات");
+                }
             }
             else
             {
                 comp.updateCompaniesInfo(txtInsComp.Text, id);
+                MessageBox.Show("تم التحديث بنجاح");
             }
         }
     }

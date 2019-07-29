@@ -146,5 +146,11 @@ namespace IFarmer.PL
             PL.listInvoice frm = new listInvoice();
             frm.ShowDialog();
         }
+
+        private void الارباحToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.profit frm = new profit();
+            frm.ShowDialog();
+        }
     }
 }

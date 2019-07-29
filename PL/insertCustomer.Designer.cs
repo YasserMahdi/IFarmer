@@ -167,10 +167,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtName;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtPhone;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
-        private Bunifu.Framework.UI.BunifuFlatButton bntSave;
+        public System.Windows.Forms.Panel panel1;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtName;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtPhone;
+        public Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        public Bunifu.Framework.UI.BunifuFlatButton bntSave;
     }
 }

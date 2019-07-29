@@ -31,9 +31,7 @@ namespace IFarmer.PL
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
-            PL.showInvoice frm = new showInvoice();
-            frm.id = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value);
-            frm.ShowDialog();
+           
         }
     }
 }
