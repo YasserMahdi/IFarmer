@@ -68,5 +68,13 @@ namespace IFarmer.PL
         {
             this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            BL.categories Cat = new BL.categories();
+            cat.delCat(this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString());
+            MessageBox.Show("هل تريد الحذف  ؟","عملية الحذف",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo();
+        }
     }
 }

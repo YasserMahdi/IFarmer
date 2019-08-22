@@ -147,6 +147,7 @@
             this.Name = "Debts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Debts";
+            this.Load += new System.EventHandler(this.Debts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

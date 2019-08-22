@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IFarmer.REPORT {
+namespace IFarmer.Report {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace IFarmer.REPORT {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Invoice : ReportClass {
+    public class invoice : ReportClass {
         
-        public Invoice() {
+        public invoice() {
         }
         
         public override string ResourceName {
             get {
-                return "Invoice.rpt";
+                return "invoice.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace IFarmer.REPORT {
         
         public override string FullResourceName {
             get {
-                return "IFarmer.REPORT.Invoice.rpt";
+                return "IFarmer.Report.invoice.rpt";
             }
             set {
                 // Do nothing
@@ -87,12 +87,20 @@ namespace IFarmer.REPORT {
                 return this.ReportDefinition.Sections[4];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_invID {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedInvoice : Component, ICachedReport {
+    public class Cachedinvoice : Component, ICachedReport {
         
-        public CachedInvoice() {
+        public Cachedinvoice() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace IFarmer.REPORT {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Invoice rpt = new Invoice();
+            invoice rpt = new invoice();
             rpt.Site = this.Site;
             return rpt;
         }

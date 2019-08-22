@@ -73,6 +73,7 @@
             this.bntEditSeason.Size = new System.Drawing.Size(181, 41);
             this.bntEditSeason.TabIndex = 1;
             this.bntEditSeason.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bntEditSeason.Click += new System.EventHandler(this.bntEditSeason_Click);
             // 
             // btnAddSeason
             // 

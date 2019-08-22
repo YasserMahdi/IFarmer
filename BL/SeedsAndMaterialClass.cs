@@ -31,7 +31,7 @@ namespace IFarmer.BL
             param[4] = new SqlParameter("@type_name", SqlDbType.NVarChar, 50);
             param[4].Value = type;
 
-            param[5] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[5] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[5].Value = DateTime.Now;
 
             DAL.Executecmd("insertMatirials", param);
@@ -125,6 +125,37 @@ namespace IFarmer.BL
 
             DAL.Executecmd("updateTypes", param);
             DAL.close();
+        }
+
+        public DataTable searchMat(string  name)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 50);
+            param[0].Value =  name;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("searchMat", param);
+            accessobject.close();
+
+            //foreach (DataRow row in Dt.Rows)
+            //{
+            //    //  try
+            //    //  {
+            //    //    row["سعر الشراء"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر الشراء"]));
+            //    //
+            //    //       row["سعر البيع"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر البيع"]));
+            //    //  }
+            //    //   catch (Exception ex)
+            //    //  {
+
+            //    //  }
+            //}
+
+
+            return Dt;
+
         }
 
 

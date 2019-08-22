@@ -35,7 +35,24 @@ namespace IFarmer.BL
 
         }
 
-        public void add_order(int customerID, string inv_no, string note, double total_ammount, double dept,string isCashed, DateTime DateT)
+        public DataTable printinvoice( int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@invID", SqlDbType.Int);
+            param[0].Value = id;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("printinvoice", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public void add_order(int customerID, string inv_no, string note, double total_ammount, double resived,string isCashed, DateTime DateT)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -57,7 +74,7 @@ namespace IFarmer.BL
             param[4].Value = total_ammount;
 
             param[5] = new SqlParameter("@recived", SqlDbType.Money);
-            param[5].Value = dept;
+            param[5].Value =resived;
 
             param[6] = new SqlParameter("@isCashed", SqlDbType.NVarChar,50);
             param[6].Value = isCashed;
@@ -68,11 +85,11 @@ namespace IFarmer.BL
             DAL.close();
         }
 
-        public void add_order_detail(int mat_no, int order_no, int qte, double price, double amount)
+        public void add_order_detail(int mat_no,string matName, int order_no, int qte, double price, double amount)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
-            SqlParameter[] param = new SqlParameter[5];
+            SqlParameter[] param = new SqlParameter[6];
 
 
             param[0] = new SqlParameter("@mat_no", SqlDbType.Int);
@@ -88,10 +105,10 @@ namespace IFarmer.BL
             param[3].Value = price;
 
             param[4] = new SqlParameter("@amount", SqlDbType.Money);
-            param[4].Value = Convert.ToDouble(amount);
+            param[4].Value = amount;
 
-
-
+            param[5] = new SqlParameter("@mat_name", SqlDbType.NVarChar,50);
+            param[5].Value = matName;
 
 
             DAL.Executecmd("add_order_detail", param);

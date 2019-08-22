@@ -112,6 +112,7 @@ namespace IFarmer.PL
 
                 this.txtName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 this.txtCusID.Text = frm.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                this.oldDept.Text = String.Format("{0:n0}", debt.fetchOldDebt(Convert.ToInt32(this.txtCusID.Text)).Rows[0][0]) ;
 
 
 
@@ -158,16 +159,15 @@ namespace IFarmer.PL
                     {
 
                         doc.add_doc_detail(Convert.ToInt32(this.dataGridView1.Rows[i].Cells[0].Value),
+                            this.dataGridView1.Rows[i].Cells[1].Value.ToString(),
                             Convert.ToInt32(txtID.Text), Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value),
                             Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value),
                             Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value));
 
                     }
 
-                    if (MessageBox.Show("تم الحفظ بنجاح هل تريد طباعة الفاتورة ", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-
-                    }
+                    MessageBox.Show("تم الحفظ بنجاح   ", "عملية الحفظ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    
 
                 }
                 //if there are debt 
@@ -183,6 +183,7 @@ namespace IFarmer.PL
                     {
 
                         doc.add_doc_detail(Convert.ToInt32(this.dataGridView1.Rows[i].Cells[0].Value),
+                            this.dataGridView1.Rows[i].Cells[1].Value.ToString(),
                             Convert.ToInt32(txtID.Text), Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value),
                             Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value),
                             Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value));
@@ -192,10 +193,7 @@ namespace IFarmer.PL
                     debt.add_debt_detail(Convert.ToInt32(txtID.Text), Convert.ToInt32(txtCusID.Text), Convert.ToDouble(txtReamining.Text));
 
 
-                    if (MessageBox.Show("تم حفظ الفاتورة و الدين هل تريد طباعة الفاتورة", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-
-                    }
+                    MessageBox.Show("تم الحفظ بنجاح   ", "عملية الحفظ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 }
 

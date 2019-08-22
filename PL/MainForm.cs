@@ -152,5 +152,10 @@ namespace IFarmer.PL
             PL.profit frm = new profit();
             frm.ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

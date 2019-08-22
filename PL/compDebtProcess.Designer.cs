@@ -99,6 +99,7 @@
             this.Name = "compDebtProcess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الديون";
+            this.Load += new System.EventHandler(this.compDebtProcess_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

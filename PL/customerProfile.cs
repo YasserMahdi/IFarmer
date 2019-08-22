@@ -47,7 +47,10 @@ namespace IFarmer.PL
         {
             PL.customerDebtHistory frm = new customerDebtHistory();
             frm.id = this.id;
+            frm.oldDept = Convert.ToDouble(txtDebt.Text);
             frm.ShowDialog();
+            this.invoDataGrid1.DataSource = order.notPaidInCash(id);
+            this.docDataGrid2.DataSource = doc.unPaidDoc(id);
         }
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)

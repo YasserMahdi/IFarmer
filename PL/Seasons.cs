@@ -22,6 +22,7 @@ namespace IFarmer.PL
         private void btnAddSeason_Click(object sender, EventArgs e)
         {
             PL.insSeason frm = new insSeason();
+            frm.State = "add";
             frm.ShowDialog();
             this.dataGridView1.DataSource = son.fetchSeasonsNames();
         }
@@ -35,6 +36,15 @@ namespace IFarmer.PL
         private void txtSearch_OnValueChanged(object sender, EventArgs e)
         {
             this.dataGridView1.DataSource = son.searchInSeasons(txtSearch.Text);
+        }
+
+        private void bntEditSeason_Click(object sender, EventArgs e)
+        {
+            PL.insSeason frm = new insSeason();
+            frm.id =Convert.ToInt32( this.dataGridView1.CurrentRow.Cells[0].Value);
+            frm.State = "update"; 
+            frm.ShowDialog();
+            this.dataGridView1.DataSource = son.fetchSeasonsNames();
         }
     }
 }

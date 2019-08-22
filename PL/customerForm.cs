@@ -18,7 +18,6 @@ namespace IFarmer.PL
         public customerForm()
         {
             InitializeComponent();
-            this.bunifuCustomDataGrid1.DataSource = customer.getCustomerInfo();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -26,7 +25,7 @@ namespace IFarmer.PL
             PL.insertCustomer frm = new insertCustomer();
             frm.state = "add";
             frm.ShowDialog();
-            this.bunifuCustomDataGrid1.DataSource = customer.getCustomerInfo();
+            this.metroGrid1.DataSource = customer.getCustomerInfo();
         }
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
@@ -39,9 +38,9 @@ namespace IFarmer.PL
             PL.customerProfile frm = new customerProfile();
             try
             {
-                frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString();
-                frm.txtDebt.Text = debt.userTotalDebt(Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value)).Rows[0][0].ToString();
-                frm.id = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
+                frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
+                frm.txtDebt.Text = String.Format("{0:n0}", debt.userTotalDebt(Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value)).Rows[0][0]);
+                frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
                 
             }
             catch
@@ -54,12 +53,24 @@ namespace IFarmer.PL
         private void btnModify_Click(object sender, EventArgs e)
         {
             PL.insertCustomer frm = new insertCustomer();
-            frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString();
-            frm.txtPhone.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[2].Value.ToString();
-            frm.UserID = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
+            frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
+            frm.txtPhone.Text = this.metroGrid1.CurrentRow.Cells[2].Value.ToString();
+            frm.UserID = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
             frm.state = "update";
             frm.ShowDialog();
-            this.bunifuCustomDataGrid1.DataSource = customer.getCustomerInfo();
+            this.metroGrid1.DataSource = customer.getCustomerInfo();
         }
+
+        private void customerForm_Load(object sender, EventArgs e)
+        {
+            this.metroGrid1.DataSource = customer.getCustomerInfo();
+        }
+
+        private void txtSearch_OnValueChanged(object sender, EventArgs e)
+        {
+            this.metroGrid1.DataSource = customer.searchINcostumer(this.txtSearch.Text);
+        }
+
+      
     }
 }

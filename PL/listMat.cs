@@ -23,5 +23,10 @@ namespace IFarmer.PL
         {
             this.Close();
         }
+
+        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = sam.searchMat(this.bunifuMaterialTextbox1.Text);
+        }
     }
 }

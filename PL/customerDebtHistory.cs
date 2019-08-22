@@ -13,7 +13,8 @@ namespace IFarmer.PL
     public partial class customerDebtHistory : Form
     {
         BL.debtClass debt = new BL.debtClass();
-        public Int32 id;
+        public int id;
+        public double oldDept;
         public customerDebtHistory()
         {
             InitializeComponent();
@@ -32,6 +33,37 @@ namespace IFarmer.PL
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnREP_Click(object sender, EventArgs e)
+        {
+            PL.Pay frm = new Pay();
+            frm.txtID.Text = this.id.ToString() ;
+            frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value.ToString();
+            frm.OldDebt = oldDept;
+            frm.txtOldDept.Text = string.Format("{0:n0}", oldDept);
+            frm.State = "inv";
+            frm.ShowDialog();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Report.ReportForm frm = new Report.ReportForm();
+            Report.debt rpt = new Report.debt();
+            rpt.SetDataSource(debt.printDebt(id));
+            frm.crystalReportViewer1.ReportSource = rpt;
+            frm.ShowDialog();
+        }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            PL.Pay frm = new Pay();
+            frm.txtID.Text = this.id.ToString();
+            frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value.ToString();
+            frm.OldDebt = oldDept;
+            frm.txtOldDept.Text = string.Format("{0:n0}", oldDept);
+            frm.State = "doc";
+            frm.ShowDialog();
         }
     }
 }

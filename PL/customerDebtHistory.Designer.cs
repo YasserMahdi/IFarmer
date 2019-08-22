@@ -35,6 +35,7 @@
             this.btnPrint = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnREP = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnDocRep = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,12 +86,13 @@
             this.btnPrint.IdleFillColor = System.Drawing.Color.White;
             this.btnPrint.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnPrint.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnPrint.Location = new System.Drawing.Point(339, 425);
+            this.btnPrint.Location = new System.Drawing.Point(257, 425);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(5);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(181, 41);
             this.btnPrint.TabIndex = 1;
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnREP
             // 
@@ -101,7 +103,7 @@
             this.btnREP.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.btnREP.BackColor = System.Drawing.SystemColors.Control;
             this.btnREP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnREP.BackgroundImage")));
-            this.btnREP.ButtonText = "سداد";
+            this.btnREP.ButtonText = "سداد الفواتير";
             this.btnREP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnREP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnREP.ForeColor = System.Drawing.Color.SeaGreen;
@@ -110,12 +112,13 @@
             this.btnREP.IdleFillColor = System.Drawing.Color.White;
             this.btnREP.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnREP.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnREP.Location = new System.Drawing.Point(530, 425);
+            this.btnREP.Location = new System.Drawing.Point(448, 425);
             this.btnREP.Margin = new System.Windows.Forms.Padding(5);
             this.btnREP.Name = "btnREP";
             this.btnREP.Size = new System.Drawing.Size(181, 41);
             this.btnREP.TabIndex = 2;
             this.btnREP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnREP.Click += new System.EventHandler(this.btnREP_Click);
             // 
             // btnClose
             // 
@@ -135,7 +138,7 @@
             this.btnClose.IdleFillColor = System.Drawing.Color.White;
             this.btnClose.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnClose.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.Location = new System.Drawing.Point(148, 425);
+            this.btnClose.Location = new System.Drawing.Point(66, 425);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(181, 41);
@@ -143,11 +146,38 @@
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnDocRep
+            // 
+            this.btnDocRep.ActiveBorderThickness = 1;
+            this.btnDocRep.ActiveCornerRadius = 20;
+            this.btnDocRep.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnDocRep.ActiveForecolor = System.Drawing.Color.White;
+            this.btnDocRep.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnDocRep.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDocRep.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDocRep.BackgroundImage")));
+            this.btnDocRep.ButtonText = "سداد المستندات";
+            this.btnDocRep.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDocRep.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDocRep.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnDocRep.IdleBorderThickness = 1;
+            this.btnDocRep.IdleCornerRadius = 20;
+            this.btnDocRep.IdleFillColor = System.Drawing.Color.White;
+            this.btnDocRep.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnDocRep.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnDocRep.Location = new System.Drawing.Point(639, 425);
+            this.btnDocRep.Margin = new System.Windows.Forms.Padding(5);
+            this.btnDocRep.Name = "btnDocRep";
+            this.btnDocRep.Size = new System.Drawing.Size(181, 41);
+            this.btnDocRep.TabIndex = 4;
+            this.btnDocRep.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDocRep.Click += new System.EventHandler(this.bunifuThinButton21_Click);
+            // 
             // customerDebtHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 480);
+            this.Controls.Add(this.btnDocRep);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnREP);
             this.Controls.Add(this.btnPrint);
@@ -167,5 +197,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnPrint;
         private Bunifu.Framework.UI.BunifuThinButton2 btnREP;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnDocRep;
     }
 }

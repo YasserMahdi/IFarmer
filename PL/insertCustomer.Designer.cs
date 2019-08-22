@@ -34,6 +34,7 @@
             this.txtPhone = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bntSave = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtNote = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,7 +57,7 @@
             this.txtName.LineIdleColor = System.Drawing.Color.SeaGreen;
             this.txtName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtName.LineThickness = 3;
-            this.txtName.Location = new System.Drawing.Point(238, 150);
+            this.txtName.Location = new System.Drawing.Point(238, 168);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(370, 44);
@@ -131,7 +132,7 @@
             this.bntSave.IconVisible = true;
             this.bntSave.IconZoom = 90D;
             this.bntSave.IsTab = false;
-            this.bntSave.Location = new System.Drawing.Point(238, 298);
+            this.bntSave.Location = new System.Drawing.Point(238, 369);
             this.bntSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bntSave.Name = "bntSave";
             this.bntSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
@@ -147,11 +148,32 @@
             this.bntSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntSave.Click += new System.EventHandler(this.bntSave_Click);
             // 
+            // txtNote
+            // 
+            this.txtNote.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNote.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNote.HintForeColor = System.Drawing.Color.Empty;
+            this.txtNote.HintText = "";
+            this.txtNote.isPassword = false;
+            this.txtNote.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtNote.LineIdleColor = System.Drawing.Color.SeaGreen;
+            this.txtNote.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtNote.LineThickness = 3;
+            this.txtNote.Location = new System.Drawing.Point(238, 272);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(370, 44);
+            this.txtNote.TabIndex = 8;
+            this.txtNote.Text = "الملاحظات";
+            this.txtNote.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // insertCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 539);
+            this.Controls.Add(this.txtNote);
             this.Controls.Add(this.bntSave);
             this.Controls.Add(this.bunifuThinButton21);
             this.Controls.Add(this.txtPhone);
@@ -172,5 +194,6 @@
         public Bunifu.Framework.UI.BunifuMaterialTextbox txtPhone;
         public Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
         public Bunifu.Framework.UI.BunifuFlatButton bntSave;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtNote;
     }
 }

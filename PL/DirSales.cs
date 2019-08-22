@@ -149,15 +149,15 @@ namespace IFarmer.PL
                 {
 
                     //insert the informations of invoive
-                    ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
-                        Convert.ToDouble(0), "YES",bunifuDatepicker1.Value);
+                    ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(txtTotal.Text),
+                        Convert.ToDouble(rAmount), "YES",bunifuDatepicker1.Value);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
 
 
-                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), Convert.ToInt32(txtID.Text)
+                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value),dataGridView1.Rows[i].Cells[1].Value.ToString(), Convert.ToInt32(txtID.Text)
                             , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                            );
@@ -166,7 +166,21 @@ namespace IFarmer.PL
 
                     if (MessageBox.Show("تم الحفظ بنجاح هل تريد طباعة الفاتورة ", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        try
+                        {
+                            Report.invoice rpt = new Report.invoice();
+                            Report.ReportForm frm = new Report.ReportForm();
+                            rpt.SetDataSource(ord.printinvoice(Convert.ToInt32(
+                                ord.getLastInvoiceForPrint().Rows[0][0])));
+                            frm.crystalReportViewer1.ReportSource = rpt;
 
+                            frm.ShowDialog();
+                            //frm.crystalReportViewer1.PrintReport();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
 
                 }
@@ -174,15 +188,15 @@ namespace IFarmer.PL
                 else if ((totalMoney - rAmount) > 1)
                 {
                     //insert the informations of invoive
-                    ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, "", Convert.ToDouble(txtTotal.Text),
-                        Convert.ToDouble(0), "NO" ,bunifuDatepicker1.Value);
+                    ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(txtTotal.Text),
+                        Convert.ToDouble(rAmount), "NO" ,bunifuDatepicker1.Value);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
 
 
-                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), Convert.ToInt32(txtID.Text)
+                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value),dataGridView1.Rows[i].Cells[1].Value.ToString(), Convert.ToInt32(txtID.Text)
                             , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                            );
@@ -196,7 +210,21 @@ namespace IFarmer.PL
 
                     if (MessageBox.Show("تم حفظ الفاتورة و الدين هل تريد طباعة الفاتورة", "الطباعه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        try
+                        {
+                            Report.invoice rpt = new Report.invoice();
+                            Report.ReportForm frm = new Report.ReportForm();
+                            rpt.SetDataSource(ord.printinvoice(Convert.ToInt32(
+                                ord.getLastInvoiceForPrint().Rows[0][0])));
+                            frm.crystalReportViewer1.ReportSource = rpt;
 
+                            frm.ShowDialog();
+                            //frm.crystalReportViewer1.PrintReport();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
 
                 }

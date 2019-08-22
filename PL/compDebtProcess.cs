@@ -29,8 +29,14 @@ namespace IFarmer.PL
             }
             if(state == "rep")
             {
-
+                debt.setDirCompaniesRep(name, Convert.ToDouble(txtMoney.Text));
+                MessageBox.Show("تم الاضافة بنجاح", "ادخال دين جديد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void compDebtProcess_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -51,6 +51,7 @@
             this.bunifuDatepicker1 = new Bunifu.Framework.UI.BunifuDatepicker();
             this.txtID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSeasonID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSeasonName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtNote = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -58,15 +59,13 @@
             this.txtName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bunifuMaterialTextbox2 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.oldDept = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtCusID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtReamining = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txtAmountReceived = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtSeasonID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -338,6 +337,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "معلومات القائمه";
             // 
+            // txtSeasonID
+            // 
+            this.txtSeasonID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSeasonID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtSeasonID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSeasonID.HintForeColor = System.Drawing.Color.Empty;
+            this.txtSeasonID.HintText = "";
+            this.txtSeasonID.isPassword = false;
+            this.txtSeasonID.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtSeasonID.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtSeasonID.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtSeasonID.LineThickness = 3;
+            this.txtSeasonID.Location = new System.Drawing.Point(7, 180);
+            this.txtSeasonID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSeasonID.Name = "txtSeasonID";
+            this.txtSeasonID.Size = new System.Drawing.Size(129, 44);
+            this.txtSeasonID.TabIndex = 16;
+            this.txtSeasonID.Text = "معرف الموسم";
+            this.txtSeasonID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(466, 201);
@@ -380,7 +399,7 @@
             this.txtNote.LineIdleColor = System.Drawing.Color.Gray;
             this.txtNote.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtNote.LineThickness = 3;
-            this.txtNote.Location = new System.Drawing.Point(67, 180);
+            this.txtNote.Location = new System.Drawing.Point(67, 128);
             this.txtNote.Margin = new System.Windows.Forms.Padding(4);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(370, 44);
@@ -446,9 +465,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.bunifuMaterialTextbox2);
+            this.groupBox1.Controls.Add(this.oldDept);
             this.groupBox1.Controls.Add(this.txtNote);
-            this.groupBox1.Controls.Add(this.bunifuMaterialTextbox1);
             this.groupBox1.Controls.Add(this.btnBrowse);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtCusID);
@@ -459,45 +477,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "معلومات الزبون";
             // 
-            // bunifuMaterialTextbox2
+            // oldDept
             // 
-            this.bunifuMaterialTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox2.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox2.HintText = "";
-            this.bunifuMaterialTextbox2.isPassword = false;
-            this.bunifuMaterialTextbox2.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox2.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox2.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox2.LineThickness = 3;
-            this.bunifuMaterialTextbox2.Location = new System.Drawing.Point(67, 128);
-            this.bunifuMaterialTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox2.Name = "bunifuMaterialTextbox2";
-            this.bunifuMaterialTextbox2.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMaterialTextbox2.TabIndex = 13;
-            this.bunifuMaterialTextbox2.Text = "الدين السابق";
-            this.bunifuMaterialTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // bunifuMaterialTextbox1
-            // 
-            this.bunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox1.HintText = "";
-            this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox1.LineThickness = 3;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(67, 76);
-            this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
-            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMaterialTextbox1.TabIndex = 12;
-            this.bunifuMaterialTextbox1.Text = "رقم الهاتف";
-            this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.oldDept.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.oldDept.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.oldDept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.oldDept.HintForeColor = System.Drawing.Color.Empty;
+            this.oldDept.HintText = "";
+            this.oldDept.isPassword = false;
+            this.oldDept.LineFocusedColor = System.Drawing.Color.Blue;
+            this.oldDept.LineIdleColor = System.Drawing.Color.Gray;
+            this.oldDept.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.oldDept.LineThickness = 3;
+            this.oldDept.Location = new System.Drawing.Point(67, 76);
+            this.oldDept.Margin = new System.Windows.Forms.Padding(4);
+            this.oldDept.Name = "oldDept";
+            this.oldDept.Size = new System.Drawing.Size(370, 44);
+            this.oldDept.TabIndex = 13;
+            this.oldDept.Text = "الدين السابق";
+            this.oldDept.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // txtCusID
             // 
@@ -564,26 +562,6 @@
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(82, 17);
             this.bunifuCustomLabel3.TabIndex = 46;
             this.bunifuCustomLabel3.Text = "المبلغ الباقي";
-            // 
-            // txtSeasonID
-            // 
-            this.txtSeasonID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSeasonID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtSeasonID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSeasonID.HintForeColor = System.Drawing.Color.Empty;
-            this.txtSeasonID.HintText = "";
-            this.txtSeasonID.isPassword = false;
-            this.txtSeasonID.LineFocusedColor = System.Drawing.Color.Blue;
-            this.txtSeasonID.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtSeasonID.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.txtSeasonID.LineThickness = 3;
-            this.txtSeasonID.Location = new System.Drawing.Point(7, 180);
-            this.txtSeasonID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSeasonID.Name = "txtSeasonID";
-            this.txtSeasonID.Size = new System.Drawing.Size(129, 44);
-            this.txtSeasonID.TabIndex = 16;
-            this.txtSeasonID.Text = "معرف الموسم";
-            this.txtSeasonID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // documens
             // 
@@ -654,8 +632,7 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtName;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox2;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox oldDept;
         private System.Windows.Forms.Button button1;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txtSeasonName;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtReamining;

@@ -25,7 +25,7 @@ namespace IFarmer.BL
             param[2] = new SqlParameter("@moneyOf", SqlDbType.Money);
             param[2].Value = moneyOf;
 
-            param[3] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[3] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[3].Value = DateTime.Now;
 
 
@@ -71,7 +71,7 @@ namespace IFarmer.BL
             param[2] = new SqlParameter("@moneyOf", SqlDbType.Money);
             param[2].Value = moneyOf;
 
-            param[3] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[3] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[3].Value = DateTime.Now;
 
 
@@ -95,11 +95,31 @@ namespace IFarmer.BL
             param[1] = new SqlParameter("@moneyOf", SqlDbType.Money);
             param[1].Value = moneyOf;
 
-            param[2] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[2].Value = DateTime.Now;
 
 
             DAL.Executecmd("setDirCompaniesDebts", param);
+            DAL.close();
+        }
+
+        public void setDirCompaniesRep(string comp_name, double moneyOf)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@comp_name", SqlDbType.NVarChar, 50);
+            param[0].Value = comp_name;
+
+            param[1] = new SqlParameter("@moneyOf", SqlDbType.Money);
+            param[1].Value = moneyOf;
+
+            param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
+            param[2].Value = DateTime.Now;
+
+
+            DAL.Executecmd("setDirCompaniesRep", param);
             DAL.close();
         }
 
@@ -210,7 +230,278 @@ namespace IFarmer.BL
 
         }
 
+        public DataTable fetchOldDebt(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
 
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("fetchOldDebt", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable sel_nto_paid_doc(int cus_id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = cus_id;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("sel_nto_paid_doc", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable DebtRepaymentForDoc(int doc_id, double paid , double rest)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = doc_id;
+
+            param[1] = new SqlParameter("@paid", SqlDbType.Money);
+            param[1].Value = paid;
+
+            param[2] = new SqlParameter("@rest", SqlDbType.Money);
+            param[2].Value = rest;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("DebtRepaymentForDoc", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable set_RepaymentForDoc_in_the_tables(int inv_id, double recived)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = inv_id;
+
+            param[1] = new SqlParameter("@mny", SqlDbType.Money);
+            param[1].Value = recived;
+
+            param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
+            param[2].Value = DateTime.Now;
+
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("set_RepaymentForInvoice_in_the_tables", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public void processOnDebtRepaymentForDoc(int cus_id,double mny)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            DataTable Dt_not_paid_doc = this.sel_nto_paid_doc(cus_id);
+
+
+
+            foreach (DataRow row in Dt_not_paid_doc.Rows)
+            {
+                double total = Convert.ToDouble(row["total_amount"]);
+                double paid = Convert.ToDouble(row["paid"]);
+                if ((total - paid) <= mny)
+                {
+                    row["paid"] = row["total_amount"];
+                    row["rest"] = Convert.ToDouble(0.0);
+                    mny -= (total - paid);
+                }
+                else if((total - paid) > mny && mny > 0)
+                {
+                    double temp = Convert.ToDouble(row["paid"]);
+                    temp += mny;
+                    row["paid"] = Convert.ToDouble(temp);
+                    row["rest"] = total - temp;
+                    mny = 0;
+                }
+            }
+
+
+            foreach (DataRow row in Dt_not_paid_doc.Rows)
+            {
+                //if (Convert.ToDouble( row["rest"]) <= 0)
+                //{
+                    this.DebtRepaymentForDoc(Convert.ToInt32(row["id"]), Convert.ToDouble(row["paid"]),
+                        Convert.ToDouble(row["rest"]));
+                //}
+                //else if (Convert.ToDouble(row["rest"]) > 0 && Convert.ToDouble(row["paid"]) > 0) 
+                //{
+                //    this.DebtRepaymentForDoc(Convert.ToInt32(row["id"]), Convert.ToDouble(row["paid"]),
+                //        Convert.ToDouble(row["rest"]));
+                //}
+            }
+
+
+        }
+
+        public DataTable sel_nto_paid_innvoice(int cus_id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = cus_id;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("sel_nto_paid_innvoice", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable DebtRepaymentForInvoice(int inv_id, double recived, string isCashed)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = inv_id;
+
+            param[1] = new SqlParameter("@mny", SqlDbType.Money);
+            param[1].Value = recived;
+
+            param[2] = new SqlParameter("@isCashed", SqlDbType.NVarChar, 10);
+            param[2].Value = isCashed;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("DebtRepaymentForInvoice", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable set_RepaymentForInvoice_in_the_tables(int inv_id, double recived)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = inv_id;
+
+            param[1] = new SqlParameter("@mny", SqlDbType.Money);
+            param[1].Value = recived;
+
+            param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
+            param[2].Value = DateTime.Now;
+
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("set_RepaymentForInvoice_in_the_tables", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public void processOnDebtRepaymentForInvoice(int cus_id, double mny)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            DataTable Dt_not_paid_invo = this.sel_nto_paid_innvoice(cus_id);
+
+
+
+            foreach (DataRow row in Dt_not_paid_invo.Rows)
+            {
+                double total = Convert.ToDouble(row["total_amount"]);
+                double revived = Convert.ToDouble(row["recived"]);
+                if ((total - revived) <= mny)
+                {
+                    row["recived"] = row["total_amount"];
+                    row["isCashed"] = "Yes";
+                    mny -= (Convert.ToDouble(row["total_amount"]) - Convert.ToDouble(row["recived"]));
+                }
+                else if ((total - revived) > mny && mny != 0)
+                {
+                    double temp = Convert.ToDouble(row["recived"]);
+                    temp += mny;
+                    row["recived"] = Convert.ToDouble(temp);
+                    mny = 0;
+                }
+            }
+
+
+            foreach (DataRow row in Dt_not_paid_invo.Rows)
+            {
+                if (row["isCashed"].Equals("Yes"))
+                {
+                    this.DebtRepaymentForInvoice(Convert.ToInt32(row["inv_id"]), Convert.ToDouble(row["recived"]),
+                        Convert.ToString(row["isCashed"]));
+                }
+                else if (row["isCashed"].Equals("NO") && Convert.ToDouble(row["recived"]) > 0)
+                {
+                    this.DebtRepaymentForInvoice(Convert.ToInt32(row["inv_id"]), Convert.ToDouble(row["recived"]),
+                        Convert.ToString(row["isCashed"]));
+                }
+            }
+
+
+        }
+        public DataTable DebtRepaymentForDoc(int id, double mny)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+            param[1] = new SqlParameter("@mny", SqlDbType.Money);
+            param[1].Value = mny;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("DebtRepaymentForDoc", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable printDebt(int cus_id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@user_id", SqlDbType.Int);
+            param[0].Value = cus_id;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("printDebt", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
 
 
 

@@ -22,7 +22,7 @@ namespace IFarmer.BL
             param[1] = new SqlParameter("@salary", SqlDbType.Money);
             param[1].Value = salary;
 
-            param[2] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[2].Value = dateT; //DateTime.Now;
 
             DAL.open();
@@ -42,7 +42,7 @@ namespace IFarmer.BL
             param[1] = new SqlParameter("@amount", SqlDbType.Money);
             param[1].Value = salary;
 
-            param[2] = new SqlParameter("@dateT", SqlDbType.Date);
+            param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[2].Value = dateT; //DateTime.Now;
 
             DAL.open();

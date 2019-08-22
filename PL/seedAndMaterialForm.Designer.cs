@@ -183,6 +183,7 @@
             this.btnDelete.Size = new System.Drawing.Size(181, 41);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // bntAdd
             // 

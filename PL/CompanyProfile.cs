@@ -208,6 +208,7 @@ namespace IFarmer.PL
         {
             PL.compDebtProcess frm = new compDebtProcess();
             frm.state = "rep";
+            frm.name = txtName.Text;
             frm.ShowDialog();
         }
 

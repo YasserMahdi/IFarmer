@@ -20,13 +20,35 @@ namespace IFarmer.BL
             param[0] = new SqlParameter("@season_name", SqlDbType.VarChar, 50);
             param[0].Value = SeasonName;
 
-            param[1] = new SqlParameter("@Start_Date", SqlDbType.Date);
+            param[1] = new SqlParameter("@Start_Date", SqlDbType.DateTime);
             param[1].Value = Start_Date;
 
-            param[2] = new SqlParameter("@Expiry_date", SqlDbType.Date);
+            param[2] = new SqlParameter("@Expiry_date", SqlDbType.DateTime);
             param[2].Value = Expiry_date;
 
             DAL.Executecmd("insSeasons", param);
+            DAL.close();
+        }
+
+        public void updateSeasons(string SeasonName, DateTime Start_Date, DateTime Expiry_date,int id)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[4];
+
+            param[0] = new SqlParameter("@season_name", SqlDbType.VarChar, 50);
+            param[0].Value = SeasonName;
+
+            param[1] = new SqlParameter("@Start_Date", SqlDbType.DateTime);
+            param[1].Value = Start_Date;
+
+            param[2] = new SqlParameter("@Expiry_date", SqlDbType.DateTime);
+            param[2].Value = Expiry_date;
+
+            param[3] = new SqlParameter("@id", SqlDbType.Int);
+            param[3].Value = id;
+
+            DAL.Executecmd("updateSeasons", param);
             DAL.close();
         }
 

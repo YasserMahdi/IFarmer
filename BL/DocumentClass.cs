@@ -69,11 +69,11 @@ namespace IFarmer.BL
             DAL.close();
         }
 
-        public void add_doc_detail(int mat_no, int order_no, int qte, double price, double amount)
+        public void add_doc_detail(int mat_no,string mat_name, int order_no, int qte, double price, double amount)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
-            SqlParameter[] param = new SqlParameter[5];
+            SqlParameter[] param = new SqlParameter[6];
 
 
             param[0] = new SqlParameter("@mat_no", SqlDbType.Int);
@@ -90,6 +90,9 @@ namespace IFarmer.BL
 
             param[4] = new SqlParameter("@amount", SqlDbType.Money);
             param[4].Value = Convert.ToDouble(amount);
+
+            param[5] = new SqlParameter("@mat_name", SqlDbType.NVarChar,50);
+            param[5].Value = mat_name;
 
 
 

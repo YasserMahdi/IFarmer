@@ -16,7 +16,7 @@ namespace IFarmer.PL
         public Debts()
         {
             InitializeComponent();
-            this.bunifuCustomDataGrid1.DataSource = debt.final_status_of_debts();
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -30,7 +30,8 @@ namespace IFarmer.PL
             try
             {
                 frm.id = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
-                frm.ShowDialog();
+                frm.oldDept = Convert.ToDouble(this.bunifuCustomDataGrid1.CurrentRow.Cells[2].Value);
+                frm.Show();
             }
             catch(Exception ex)
             {
@@ -42,6 +43,11 @@ namespace IFarmer.PL
         private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
         {
            this.bunifuCustomDataGrid1.DataSource = debt.searchInDebt(txtSearch.Text);
+        }
+
+        private void Debts_Load(object sender, EventArgs e)
+        {
+            this.bunifuCustomDataGrid1.DataSource =  debt.final_status_of_debts();
         }
     }
 }

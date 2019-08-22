@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IFarmer.REPORT
+namespace IFarmer.Report
 {
-    public partial class Report : Form
+    public partial class ReportForm : Form
     {
-        public Report()
+        public ReportForm()
         {
             InitializeComponent();
         }

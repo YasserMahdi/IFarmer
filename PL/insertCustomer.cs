@@ -36,7 +36,7 @@ namespace IFarmer.PL
                     if (txtName.Text != string.Empty && txtPhone.Text != string.Empty
                         && txtPhone.Text != "رقم الهاتف " && txtName.Text != "اسم الزبون ")
                     {
-                        obj.insertCus(txtName.Text, txtPhone.Text);
+                        obj.insertCus(txtName.Text, txtPhone.Text,txtNote.Text);
                         MessageBox.Show("تم الحفظ بنجاح", "عملية الحفظ",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }

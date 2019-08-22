@@ -24,5 +24,19 @@ namespace IFarmer.BL
 
         }
 
+        public void delCat(string name)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[1];
+
+
+            param[0] = new SqlParameter("@ref", SqlDbType.NVarChar, 50);
+            param[0].Value = name;
+
+            DAL.Executecmd("deleteCat", param);
+            DAL.close();
+        }
+
     }
 }
