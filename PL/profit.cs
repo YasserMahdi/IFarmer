@@ -20,7 +20,10 @@ namespace IFarmer.PL
 
         private void profit_Load(object sender, EventArgs e)
         {
-            this.bunifuCustomDataGrid1.DataSource= rpt.profitcount();
+            DataTable Dt = rpt.profitcount();
+            
+            this.metroGrid1.DataSource = Dt;
+            
         }
     }
 }

@@ -75,6 +75,12 @@
     <Compile Include="BL\Seasons.cs" />
     <Compile Include="BL\SeedsAndMaterialClass.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="PL\acountStatemnt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\acountStatemnt.Designer.cs">
+      <DependentUpon>acountStatemnt.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,12 @@
     <Compile Include="PL\selExpenses.Designer.cs">
       <DependentUpon>selExpenses.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\showDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\showDoc.Designer.cs">
+      <DependentUpon>showDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\showInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +311,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\AccountStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\debt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,6 +334,18 @@
     </Compile>
     <Compile Include="Report\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\UnpaidDocuments.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnpaidDocuments.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\unpaidInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>unpaidInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="PL\Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
@@ -419,6 +449,9 @@
     <EmbeddedResource Include="PL\selExpenses.resx">
       <DependentUpon>selExpenses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\showDoc.resx">
+      <DependentUpon>showDoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\showInvoice.resx">
       <DependentUpon>showInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +468,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\AccountStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AccountStatement.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\debt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>debt.cs</LastGenOutput>
@@ -445,6 +482,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UnpaidDocuments.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UnpaidDocuments.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\unpaidInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>unpaidInvoice.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

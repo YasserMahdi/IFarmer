@@ -13,8 +13,8 @@ namespace IFarmer.PL
     public partial class Pay : Form
     {
         BL.debtClass debt = new BL.debtClass();
-        public double OldDebt;
         public string State;
+        public int temp;
         public Pay()
         {
             InitializeComponent();
@@ -26,14 +26,20 @@ namespace IFarmer.PL
             {
                 if (State == "inv")
                 {
-                    if (OldDebt < Convert.ToInt32(txtPay.Text))
+ 
+                    if (temp == 0)
+                    {
+                        MessageBox.Show("لا يوجد دين", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    }
+                    else if (temp < Convert.ToInt32(txtPay.Text))
                     {
 
                         MessageBox.Show(" تم ادخال مبلغ اكبر من قيمة الدين", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
-                        
+
                         debt.processOnDebtRepaymentForInvoice(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
                         MessageBox.Show(" تمت العملية بنجاح", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         debt.set_RepaymentForInvoice_in_the_tables(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
@@ -41,10 +47,22 @@ namespace IFarmer.PL
                 }
                 else
                 {
-                    debt.processOnDebtRepaymentForDoc(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
-                    MessageBox.Show(" تمت العملية بنجاح", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    debt.set_RepaymentForDoc_in_the_tables(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
+                    if (temp == 0)
+                    {
+                        MessageBox.Show("لا يوجد دين", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                    }
+                    else if (temp < Convert.ToInt32(txtPay.Text))
+                    {
+
+                        MessageBox.Show(" تم ادخال مبلغ اكبر من قيمة الدين", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        debt.processOnDebtRepaymentForDoc(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
+                        MessageBox.Show(" تمت العملية بنجاح", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        debt.set_RepaymentForDoc_in_the_tables(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
+                    }
                 }
             }
             catch (Exception ex)

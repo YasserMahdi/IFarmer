@@ -27,5 +27,12 @@ namespace IFarmer.PL
         {
             this.bunifuCustomDataGrid1.DataSource = doc.searchinDoc(txtSearch.Text);
         }
+
+        private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
+        {
+            PL.showDoc frm = new showDoc();
+            frm.docID = Convert.ToInt32(this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

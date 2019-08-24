@@ -39,7 +39,6 @@ namespace IFarmer.PL
             try
             {
                 frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
-                frm.txtDebt.Text = String.Format("{0:n0}", debt.userTotalDebt(Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value)).Rows[0][0]);
                 frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
                 
             }

@@ -13,6 +13,8 @@ namespace IFarmer.PL
     public partial class customerDebtHistory : Form
     {
         BL.debtClass debt = new BL.debtClass();
+        BL.orderClass order = new BL.orderClass();
+        BL.DocumentClass doc = new BL.DocumentClass();
         public int id;
         public double oldDept;
         public customerDebtHistory()
@@ -40,30 +42,33 @@ namespace IFarmer.PL
             PL.Pay frm = new Pay();
             frm.txtID.Text = this.id.ToString() ;
             frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value.ToString();
-            frm.OldDebt = oldDept;
-            frm.txtOldDept.Text = string.Format("{0:n0}", oldDept);
+            //frm.OldDebt = (debt.getTotalInvDebt(id) + debt.getTotalDocDebt(id));
+            frm.txtOldDept.Text = string.Format("{0:n0}", debt.getTotalInvDebt(id));
             frm.State = "inv";
             frm.ShowDialog();
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            Report.ReportForm frm = new Report.ReportForm();
-            Report.debt rpt = new Report.debt();
-            rpt.SetDataSource(debt.printDebt(id));
-            frm.crystalReportViewer1.ReportSource = rpt;
-            frm.ShowDialog();
-        }
+
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
             PL.Pay frm = new Pay();
             frm.txtID.Text = this.id.ToString();
             frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value.ToString();
-            frm.OldDebt = oldDept;
-            frm.txtOldDept.Text = string.Format("{0:n0}", oldDept);
+            //frm.OldDebt = (debt.getTotalInvDebt(id) + debt.getTotalDocDebt(id));
+            frm.txtOldDept.Text = string.Format("{0:n0}", debt.getTotalDocDebt(id));
             frm.State = "doc";
             frm.ShowDialog();
+        }
+
+        private void bunifuThinButton21_Click_1(object sender, EventArgs e)
+        {
+            Report.ReportForm frm = new Report.ReportForm();
+            Report.debt rpt = new Report.debt();
+            rpt.SetDataSource(debt.printDebt(id));
+            frm.crystalReportViewer1.ReportSource = rpt;
+            //frm.ShowDialog();
+            frm.crystalReportViewer1.PrintReport();
         }
     }
 }

@@ -66,3 +66,4 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.exe
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.pdb
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.csprojAssemblyReference.cache
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\MetroFramework.dll
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.showDoc.resources

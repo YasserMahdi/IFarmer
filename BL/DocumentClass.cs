@@ -15,7 +15,7 @@ namespace IFarmer.BL
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
 
             DataTable Dt = new DataTable();
-            Dt = accessobject.selectData("getIDforInvoice", null);
+            Dt = accessobject.selectData("getIDforDoc", null);
             accessobject.close();
 
             return Dt;
@@ -172,6 +172,60 @@ namespace IFarmer.BL
 
         }
 
+        public DataTable printDoc(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("printDoc", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+        public DataTable docTail(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("docTail", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
+
+
+        public DataTable docHead(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("docHead", param);
+            accessobject.close();
+
+            return Dt;
+
+        }
 
 
 

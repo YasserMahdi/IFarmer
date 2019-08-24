@@ -43,5 +43,24 @@ namespace IFarmer.PL
         {
             this.Close();
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Report.invoice rpt = new Report.invoice();
+                Report.ReportForm frm = new Report.ReportForm();
+                rpt.SetDataSource(order.printinvoice(Convert.ToInt32(
+                    order.getLastInvoiceForPrint().Rows[0][0])));
+                frm.crystalReportViewer1.ReportSource = rpt;
+
+                frm.ShowDialog();
+                //frm.crystalReportViewer1.PrintReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

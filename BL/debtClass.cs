@@ -9,7 +9,7 @@ namespace IFarmer.BL
 {
     class debtClass
     {
-        public void add_debt_detail(int order_no, int cusID,double moneyOf)
+        public void add_debt_detail(int order_no, int cusID, double moneyOf)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -65,7 +65,7 @@ namespace IFarmer.BL
             param[0] = new SqlParameter("@order_id", SqlDbType.Int);
             param[0].Value = order_no;
 
-            param[1] = new SqlParameter("@comp_name", SqlDbType.NVarChar,50);
+            param[1] = new SqlParameter("@comp_name", SqlDbType.NVarChar, 50);
             param[1].Value = comp_name;
 
             param[2] = new SqlParameter("@moneyOf", SqlDbType.Money);
@@ -133,10 +133,10 @@ namespace IFarmer.BL
             DataTable dt = new DataTable();
             SqlParameter[] param = new SqlParameter[1];
 
-            param[0] = new SqlParameter("@comp_name", SqlDbType.NVarChar,50);
+            param[0] = new SqlParameter("@comp_name", SqlDbType.NVarChar, 50);
             param[0].Value = compName;
 
-            
+
 
             dt = DAL.selectData("fetchCompaniesDebts", param);
             DAL.close();
@@ -161,11 +161,11 @@ namespace IFarmer.BL
         }
 
 
-        public DataTable final_status_of_debts ()
+        public DataTable final_status_of_debts()
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DataTable dt = new DataTable();
-            
+
 
 
             dt = DAL.selectData("the_final_status_of_debts", null);
@@ -200,7 +200,7 @@ namespace IFarmer.BL
 
             SqlParameter[] param = new SqlParameter[1];
 
-            param[0] = new SqlParameter("@reference", SqlDbType.NVarChar,50);
+            param[0] = new SqlParameter("@reference", SqlDbType.NVarChar, 50);
             param[0].Value = reference;
 
 
@@ -218,7 +218,7 @@ namespace IFarmer.BL
 
             SqlParameter[] param = new SqlParameter[1];
 
-            param[0] = new SqlParameter("@name", SqlDbType.NVarChar,50);
+            param[0] = new SqlParameter("@name", SqlDbType.NVarChar, 50);
             param[0].Value = name;
 
 
@@ -265,7 +265,7 @@ namespace IFarmer.BL
 
         }
 
-        public DataTable DebtRepaymentForDoc(int doc_id, double paid , double rest)
+        public DataTable DebtRepaymentForDoc(int doc_id, double paid, double rest)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
 
@@ -313,7 +313,7 @@ namespace IFarmer.BL
 
         }
 
-        public void processOnDebtRepaymentForDoc(int cus_id,double mny)
+        public void processOnDebtRepaymentForDoc(int cus_id, double mny)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
             DataTable Dt_not_paid_doc = this.sel_nto_paid_doc(cus_id);
@@ -330,7 +330,7 @@ namespace IFarmer.BL
                     row["rest"] = Convert.ToDouble(0.0);
                     mny -= (total - paid);
                 }
-                else if((total - paid) > mny && mny > 0)
+                else if ((total - paid) > mny && mny > 0)
                 {
                     double temp = Convert.ToDouble(row["paid"]);
                     temp += mny;
@@ -345,8 +345,8 @@ namespace IFarmer.BL
             {
                 //if (Convert.ToDouble( row["rest"]) <= 0)
                 //{
-                    this.DebtRepaymentForDoc(Convert.ToInt32(row["id"]), Convert.ToDouble(row["paid"]),
-                        Convert.ToDouble(row["rest"]));
+                this.DebtRepaymentForDoc(Convert.ToInt32(row["id"]), Convert.ToDouble(row["paid"]),
+                    Convert.ToDouble(row["rest"]));
                 //}
                 //else if (Convert.ToDouble(row["rest"]) > 0 && Convert.ToDouble(row["paid"]) > 0) 
                 //{
@@ -489,6 +489,9 @@ namespace IFarmer.BL
         public DataTable printDebt(int cus_id)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            double totalDoc = getTotalDocDebt(cus_id);
+            double totalInv = getTotalInvDebt(cus_id);
+
 
             SqlParameter[] param = new SqlParameter[1];
 
@@ -498,13 +501,56 @@ namespace IFarmer.BL
             DataTable Dt = new DataTable();
             Dt = accessobject.selectData("printDebt", param);
             accessobject.close();
-
+            DataRow r = Dt.NewRow();
+            r[1] = string.Format("{0:n0}", (totalInv+totalDoc));
+            r[6] = string.Format("{0:n0}", totalDoc.ToString());
+            r[7] = string.Format("{0:n0}", totalInv.ToString());
+            Dt.Rows.Add(r);
             return Dt;
 
         }
 
 
+        public double getTotalDocDebt(int cus_id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            DataTable Dt_not_paid_doc = this.sel_nto_paid_doc(cus_id);
 
+
+            double total =0 ;
+            foreach (DataRow row in Dt_not_paid_doc.Rows)
+            {
+ 
+                if (Convert.ToDouble( row["rest"]) > 0.0 && 
+                    Convert.ToDouble(row["total_amount"]) != Convert.ToDouble(row["paid"]))
+                {
+                    total += Convert.ToDouble(row["rest"]);
+                }
+ 
+            }
+            return total;
+        }
+
+
+
+        public double getTotalInvDebt(int cus_id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+            DataTable Dt_not_paid_invo = this.sel_nto_paid_innvoice(cus_id);
+
+
+            double total =0;
+            foreach (DataRow row in Dt_not_paid_invo.Rows)
+            {
+                if (row["isCashed"].Equals( "NO"))
+                {
+                   
+                    total += (Convert.ToDouble(row["total_amount"]) - Convert.ToDouble(row["recived"]));
+                }
+            }
+            return total;
+        }
+ 
     }
 
 

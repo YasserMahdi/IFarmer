@@ -135,7 +135,13 @@ namespace IFarmer.BL
             DataTable Dt = new DataTable();
             Dt = accessobject.selectData("profitcount", null);
             accessobject.close();
+            foreach (DataRow row in Dt.Rows)
+            {
+               
+                row["الايرادات"] = String.Format("{0:n0}", Convert.ToDouble(row["الايرادات"]));
+                row["الصرفيات"] = String.Format("{0:n0}", Convert.ToDouble(row["الصرفيات"]));
 
+            }
             return Dt;
 
         }
