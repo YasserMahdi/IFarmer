@@ -35,7 +35,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txtSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +86,7 @@
             this.btnClose.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnClose.ActiveForecolor = System.Drawing.Color.White;
             this.btnClose.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.ButtonText = "خروج";
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -126,27 +125,16 @@
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSearch.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox1_OnValueChanged);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1018, 23);
-            this.panel1.TabIndex = 4;
-            // 
             // Debts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 544);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bunifuCustomDataGrid1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Debts";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Debts";
+            this.Text = "الديون";
             this.Load += new System.EventHandler(this.Debts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -160,6 +148,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtSearch;
-        private System.Windows.Forms.Panel panel1;
     }
 }

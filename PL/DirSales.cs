@@ -12,9 +12,10 @@ using System.Data.SqlClient;
 
 namespace IFarmer.PL
 {
-    public partial class DirSales : Form
+    public partial class DirSales : MetroFramework.Forms.MetroForm
     {
         BL.orderClass ord = new BL.orderClass();
+        BL.CustomerClass customer = new BL.CustomerClass();
         BL.Report rpt = new BL.Report();
         DataTable dt = new DataTable();
         double Seasonal_disbursements;
@@ -89,9 +90,9 @@ namespace IFarmer.PL
             try
             {
 
-
-                this.txtName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 this.txtCusID.Text = frm.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                this.txtName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
 
 
             }
@@ -448,7 +449,17 @@ namespace IFarmer.PL
 
         }
 
-
-
+        private void txtName_OnValueChanged(object sender, EventArgs e)
+        {
+             
+            try
+            {
+                this.txtNote.Text = customer.fetchNote(Convert.ToInt32(this.txtCusID.Text)).Rows[0][0].ToString();
+            }
+            catch
+            {
+                this.txtNote.Text = null;
+            }
+        }
     }
 }

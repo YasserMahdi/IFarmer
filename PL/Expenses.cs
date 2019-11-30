@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class Expenses : Form
+    public partial class Expenses : MetroFramework.Forms.MetroForm
     {
         BL.Expenses exp = new BL.Expenses();
         BL.Report rpt = new BL.Report();

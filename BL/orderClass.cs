@@ -48,6 +48,13 @@ namespace IFarmer.BL
             Dt = accessobject.selectData("printinvoice", param);
             accessobject.close();
 
+            foreach(DataRow row in Dt.Rows)
+            {
+                row["سعر المفرد"]= String.Format("{0:n0}", Convert.ToDouble(row["سعر المفرد"]));
+                row["السعر الكلي"] = String.Format("{0:n0}", Convert.ToDouble(row["السعر الكلي"]));
+                row["المبلغ الاجمالي"] = String.Format("{0:n0}", Convert.ToDouble(row["المبلغ الاجمالي"]));
+            }
+
             return Dt;
 
         }

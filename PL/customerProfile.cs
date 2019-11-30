@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class customerProfile : Form
+    public partial class customerProfile : MetroFramework.Forms.MetroForm
     {
         public int id;
         BL.orderClass order = new BL.orderClass();
@@ -61,7 +61,8 @@ namespace IFarmer.PL
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
-            PL.showInvoice frm = new showInvoice();
+            //PL.showInvoice frm = new showInvoice();
+            PL.updateInvoice frm = new updateInvoice();
             frm.id = Convert.ToInt32(this.invoDataGrid1.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
@@ -99,9 +100,12 @@ namespace IFarmer.PL
 
         private void docDataGrid2_DoubleClick(object sender, EventArgs e)
         {
-            PL.showDoc frm = new showDoc();
+            PL.UpdateDoc frm = new UpdateDoc();
             frm.docID = Convert.ToInt32(this.docDataGrid2.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+            //PL.showDoc frm = new showDoc();
+            //frm.docID = Convert.ToInt32(this.docDataGrid2.CurrentRow.Cells[0].Value);
+            //frm.ShowDialog();
         }
 
         private void bunifuThinButton24_Click(object sender, EventArgs e)

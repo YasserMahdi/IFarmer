@@ -417,21 +417,21 @@
             // المواسمToolStripMenuItem1
             // 
             this.المواسمToolStripMenuItem1.Name = "المواسمToolStripMenuItem1";
-            this.المواسمToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.المواسمToolStripMenuItem1.Size = new System.Drawing.Size(189, 26);
             this.المواسمToolStripMenuItem1.Text = "كل المواسم";
             this.المواسمToolStripMenuItem1.Click += new System.EventHandler(this.المواسمToolStripMenuItem1_Click);
             // 
             // المواسمالحاليةToolStripMenuItem
             // 
             this.المواسمالحاليةToolStripMenuItem.Name = "المواسمالحاليةToolStripMenuItem";
-            this.المواسمالحاليةToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.المواسمالحاليةToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.المواسمالحاليةToolStripMenuItem.Text = "المواسم الحالية";
             this.المواسمالحاليةToolStripMenuItem.Click += new System.EventHandler(this.المواسمالحاليةToolStripMenuItem_Click);
             // 
             // المواسمالمنتهيةToolStripMenuItem
             // 
             this.المواسمالمنتهيةToolStripMenuItem.Name = "المواسمالمنتهيةToolStripMenuItem";
-            this.المواسمالمنتهيةToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.المواسمالمنتهيةToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.المواسمالمنتهيةToolStripMenuItem.Text = "المواسم المنتهية";
             this.المواسمالمنتهيةToolStripMenuItem.Click += new System.EventHandler(this.المواسمالمنتهيةToolStripMenuItem_Click);
             // 
@@ -606,6 +606,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الرئيسية";
+            this.TransparencyKey = System.Drawing.SystemColors.Control;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

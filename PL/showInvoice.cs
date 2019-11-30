@@ -14,6 +14,12 @@ namespace IFarmer.PL
     {
         BL.orderClass order = new BL.orderClass();
         public int id;
+
+
+
+
+
+
         public showInvoice()
         {
             InitializeComponent();

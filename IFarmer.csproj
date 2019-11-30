@@ -74,6 +74,8 @@
     <Compile Include="BL\Report.cs" />
     <Compile Include="BL\Seasons.cs" />
     <Compile Include="BL\SeedsAndMaterialClass.cs" />
+    <Compile Include="BL\updateDocument.cs" />
+    <Compile Include="BL\updateInvoce.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
     <Compile Include="PL\acountStatemnt.cs">
       <SubType>Form</SubType>
@@ -303,6 +305,18 @@
     <Compile Include="PL\showInvoice.Designer.cs">
       <DependentUpon>showInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\UpdateDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\UpdateDoc.Designer.cs">
+      <DependentUpon>UpdateDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\updateInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\updateInvoice.Designer.cs">
+      <DependentUpon>updateInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\updateTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -454,6 +468,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\showInvoice.resx">
       <DependentUpon>showInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\UpdateDoc.resx">
+      <DependentUpon>UpdateDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\updateInvoice.resx">
+      <DependentUpon>updateInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\updateTypes.resx">
       <DependentUpon>updateTypes.cs</DependentUpon>

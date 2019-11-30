@@ -11,7 +11,7 @@ namespace IFarmer.BL
 {
     class CustomerClass
     {
-        public void insertCus(string name, string phone,string note)
+        public void InsertCus(string name, string phone,string note)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -42,6 +42,24 @@ namespace IFarmer.BL
             accessobject.close();
 
             return Dt;
+
+        }
+
+        public DataTable fetchNote(int id)
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.Int);
+            param[0].Value = id;
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("fetchNote", param);
+            accessobject.close();
+
+            return Dt;
+
 
         }
 

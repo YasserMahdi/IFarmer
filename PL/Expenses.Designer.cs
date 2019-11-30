@@ -47,7 +47,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSeasonName = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,7 +100,7 @@
             this.btnSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnSave.ActiveForecolor = System.Drawing.Color.White;
             this.btnSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.ButtonText = "حفظ";
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -243,7 +242,7 @@
             this.btnEpxSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnEpxSave.ActiveForecolor = System.Drawing.Color.White;
             this.btnEpxSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnEpxSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEpxSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEpxSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEpxSave.BackgroundImage")));
             this.btnEpxSave.ButtonText = "حفظ";
             this.btnEpxSave.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -267,7 +266,7 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtSeasonName);
-            this.groupBox1.Location = new System.Drawing.Point(10, 47);
+            this.groupBox1.Location = new System.Drawing.Point(10, 67);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1065, 85);
             this.groupBox1.TabIndex = 0;
@@ -301,14 +300,6 @@
             this.txtSeasonName.Size = new System.Drawing.Size(423, 24);
             this.txtSeasonName.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1065, 23);
-            this.panel1.TabIndex = 3;
-            // 
             // btnClose
             // 
             this.btnClose.ActiveBorderThickness = 1;
@@ -316,7 +307,7 @@
             this.btnClose.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnClose.ActiveForecolor = System.Drawing.Color.White;
             this.btnClose.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.ButtonText = "خروج";
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -341,14 +332,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 587);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Expenses";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Expenses";
+            this.Text = "الصرفيات";
             this.Load += new System.EventHandler(this.Expenses_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -375,7 +363,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtAmount;
         private Bunifu.Framework.UI.BunifuThinButton2 btnEpxSave;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         public System.Windows.Forms.Button button1;

@@ -1,7 +1,6 @@
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\IFarmer.exe.config
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\IFarmer.exe
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\IFarmer.pdb
-C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\Bunifu_UI_v1.52.dll
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\CrystalDecisions.ReportSource.dll
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\CrystalDecisions.Shared.dll
@@ -67,3 +66,5 @@ C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.pdb
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.csprojAssemblyReference.cache
 C:\Users\HP\source\repos\IFarmer\IFarmer\bin\Debug\MetroFramework.dll
 C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.showDoc.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.UpdateDoc.resources
+C:\Users\HP\source\repos\IFarmer\IFarmer\obj\Debug\IFarmer.PL.updateInvoice.resources

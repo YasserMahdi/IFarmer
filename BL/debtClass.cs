@@ -164,13 +164,24 @@ namespace IFarmer.BL
         public DataTable final_status_of_debts()
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
-            DataTable dt = new DataTable();
+            DataTable Dt = new DataTable();
 
 
 
-            dt = DAL.selectData("the_final_status_of_debts", null);
+            Dt = DAL.selectData("the_final_status_of_debts", null);
             DAL.close();
-            return dt;
+            foreach (DataRow row in Dt.Rows)
+            {
+                try
+                {
+                    row["monyOf"] = String.Format("{0:n0}", Convert.ToDouble(row["monyOf"]));
+                }
+                catch
+                {
+
+                }
+            }
+            return Dt;
         }
 
 
@@ -225,6 +236,7 @@ namespace IFarmer.BL
             DataTable Dt = new DataTable();
             Dt = accessobject.selectData("getDebtInfo", param);
             accessobject.close();
+ 
 
             return Dt;
 

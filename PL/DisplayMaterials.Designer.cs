@@ -92,6 +92,7 @@
             this.Name = "DisplayMaterials";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayMaterials";
+            this.Load += new System.EventHandler(this.DisplayMaterials_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.ResumeLayout(false);
 

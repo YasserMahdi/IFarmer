@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class seedAndMaterialForm : Form
+    public partial class seedAndMaterialForm : MetroFramework.Forms.MetroForm
     {
         BL.categories cat = new BL.categories();
         BL.SeedsAndMaterialClass seed = new BL.SeedsAndMaterialClass();
@@ -83,5 +83,7 @@ namespace IFarmer.PL
                 MessageBox.Show(ex.Message);
             }
         }
+
+         
     }
 }

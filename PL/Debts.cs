@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class Debts : Form
+    public partial class Debts : MetroFramework.Forms.MetroForm
     {
         BL.debtClass debt = new BL.debtClass();
         public Debts()

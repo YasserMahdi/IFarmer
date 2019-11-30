@@ -63,16 +63,9 @@ namespace IFarmer.BL
 
             foreach (DataRow row in Dt.Rows)
             {
-                //  try
-                //  {
-                //    row["سعر الشراء"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر الشراء"]));
-                //
-                //       row["سعر البيع"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر البيع"]));
-                //  }
-                //   catch (Exception ex)
-                //  {
-
-                //  }
+                row["purchasing_price"] = String.Format("{0:n0}", Convert.ToDouble(row["purchasing_price"]));
+                row["selling_price"] = String.Format("{0:n0}", Convert.ToDouble(row["selling_price"]));
+                
             }
 
 
@@ -94,20 +87,16 @@ namespace IFarmer.BL
 
             foreach (DataRow row in Dt.Rows)
             {
-                //  try
-                //  {
-                //    row["سعر الشراء"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر الشراء"]));
-                //
-                //       row["سعر البيع"] = String.Format("{0:n0}", Convert.ToDouble(row["سعر البيع"]));
-                //  }
-                //   catch (Exception ex)
-                //  {
+                row["purchasing_price"] = String.Format("{0:n0}", Convert.ToDouble(row["purchasing_price"]));
+                row["selling_price"] = String.Format("{0:n0}", Convert.ToDouble(row["selling_price"]));
 
-                //  }
             }
 
 
             return Dt;
+
+
+            
 
         }
 

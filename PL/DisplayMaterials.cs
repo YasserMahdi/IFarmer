@@ -16,5 +16,10 @@ namespace IFarmer.PL
         {
             InitializeComponent();
         }
+
+        private void DisplayMaterials_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

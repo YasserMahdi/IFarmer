@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class documens : Form
+    public partial class documens : MetroFramework.Forms.MetroForm
     {
         BL.DocumentClass doc = new BL.DocumentClass();
+        BL.CustomerClass customer = new BL.CustomerClass();
         DataTable dt = new DataTable();
         //DataTable dt_Seasonal_disbursements = new DataTable();
         double Seasonal_disbursements = 0.0;
@@ -109,12 +110,10 @@ namespace IFarmer.PL
             try
             {
 
-
-                this.txtName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 this.txtCusID.Text = frm.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                this.oldDept.Text = String.Format("{0:n0}", debt.fetchOldDebt(Convert.ToInt32(this.txtCusID.Text)).Rows[0][0]) ;
-
-
+                this.txtName.Text = frm.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                
+            
 
             }
             catch (Exception)
@@ -318,6 +317,37 @@ namespace IFarmer.PL
             {
                 MessageBox.Show(ex.Message + " \n Error in Text changed");
             }
+        }
+
+        private void txtName_OnValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.oldDept.Text = string.Format("{0:0n}", debt.fetchOldDebt(Convert.ToInt32(this.txtCusID.Text)).Rows[0][0].ToString()); 
+            }
+            catch
+            {
+                this.oldDept.Text = null;
+            }
+            try
+            {
+                this.txtNote.Text = customer.fetchNote(Convert.ToInt32(this.txtCusID.Text)).Rows[0][0].ToString();
+            }
+            catch
+            {
+                this.txtNote.Text = null;
+            }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            txtMatNo.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtMatName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtQte.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtMatPrice.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+            txtQte.Focus();
+            calculateAmount();
         }
     }
 }
